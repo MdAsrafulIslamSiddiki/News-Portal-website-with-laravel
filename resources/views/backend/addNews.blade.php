@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="" class="d-block">
                             News Image <span class="text-danger">*</span>
-                            <input name="image" type="file"  class="form-control" value="{{ old('image') }}">
+                            <input name="image" type="file"  class="form-control">
                             @error('image')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -60,8 +60,6 @@
                 <option value="International"  {{ old('category') == 'International' ? 'selected' : '' }}>International</option>
                 <option value="National"  {{ old('category') == 'National' ? 'selected' : '' }}>National</option>
                 <option value="Breaking_news"  {{ old('category') == 'Breaking_news' ? 'selected' : '' }}>Breaking News</option>
-
-                
             </select>
             @error('category')
                     <span class="text-danger">{{ $message }}</span>

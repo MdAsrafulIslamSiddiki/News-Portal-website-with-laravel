@@ -6,10 +6,12 @@ use App\Models\News;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Traits\UploadMedia;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    use UploadMedia;
     function add_news() {
         return view('backend.addNews');
     }
@@ -28,9 +30,10 @@ class NewsController extends Controller
 
         ]);
 
-        $image_name = str($request->news_title)->slug() . '.' . $request->image->extension();
-        $upload = $request->image->storeAs('news_images', $image_name, 'public');
+        // $image_name = str($request->news_title)->slug() . '.' . $request->image->extension();
+        // $upload = $request->image->storeAs('news_images', $image_name, 'public');
 
+        $upload = $this->uploadSingleMedia($request->image, str($request->news_title)->slug(), 'news_images');
         // dd($upload);
         $news = new News();
         $news->news_title = $request->news_title;
@@ -57,6 +60,24 @@ class NewsController extends Controller
         }
         $news->delete();
         notify()->success('News deleted successfully!', 'Success');
+        return back();
+        
+    }
+    function update_news(Request $request, $id) {        
+        $slug = str($request->news_title)->slug();
+        $news = News::findOrFail($id);
+
+        $new_image = $request->hasFile('image') ? $this->uploadSingleMedia($request->image,$slug , 'news_images', $news->image) : null;
+
+        // dd($new_image);
+        $news->news_title = $request->news_title;
+        $news->slug = $slug;
+        $news->image = $new_image ?? $news->image;
+        $news->short_details = $request->short_details;
+        $news->long_details = $request->long_details;
+        $news->category = $request->category;
+        $news->save();
+        notify()->success('News updated successfully!', 'Success');
         return back();
         
     }

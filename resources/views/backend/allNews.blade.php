@@ -33,11 +33,74 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editNewsModal" data-id="1"><i class='bx bx-message-alt-edit'></i></a>
+                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editNewsModal{{ $news->id }}">
+                                                    <i class='bx bx-message-alt-edit'></i>
+                                                </a>                                                                                              
+                                                {{-- <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editNewsModal" data-id="1"><i class='bx bx-message-alt-edit'></i></a> --}}
                                                 <a href="{{route('news.delete', $news->id)}}" class="btn btn-sm btn-danger"><i class='bx bx-message-square-x'></i></a>
                                             </div>
                                         </td>
-                                    </tr>                             
+                                    </tr>  
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editNewsModal{{ $news->id }}" tabindex="-1" aria-labelledby="editNewsModalLabel{{ $news->id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title">Update News</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <!-- Update Form -->
+                                            <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('patch')
+                                                
+                                                <div class="mb-3">
+                                                <label class="form-label">Title</label>
+                                                <input type="text" class="form-control" name="news_title" value="{{ $news->news_title }}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Old Image</label>
+                                                    <img src="{{asset('storage/'.$news->image)}}" alt="" width="150px">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Select new Image</label>
+                                                    <input name="image" type="file"  class="form-control">
+                                                </div>
+                                                            
+                                                <div class="mb-3">
+                                                    <label class="form-label">Short Details</label>
+                                                    <textarea class="form-control" name="short_details" required>{{ $news->short_details }}</textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Long Details</label>
+                                                    <textarea class="form-control" name="long_details" >{{ $news->long_details }}</textarea>
+                                                </div>
+                                                <select class="form-select" name="category" required>
+                                                    <option value="">Select a news Category</option>
+                                                    <option value="Agriculture"  {{ $news->category == 'Agriculture' ? 'selected' : '' }}>Agriculture</option>
+                                                    <option value="Environment"  {{ $news->category == 'Environment' ? 'selected' : '' }}>Environment</option>
+                                                    <option value="Entertainment"  {{ $news->category == 'Entertainment' ? 'selected' : '' }}>Entertainment</option>
+                                                    <option value="Science_&_Technology"  {{ $news->category == 'Science_&_Technology' ? 'selected' : '' }}>Science & Technology</option>
+                                                    <option value="Education"  {{ $news->category == 'Education' ? 'selected' : '' }}>Education</option>
+                                                    <option value="Health"  {{ $news->category == 'Health' ? 'selected' : '' }}>Health</option>
+                                                    <option value="Sports"  {{ $news->category == 'Sports' ? 'selected' : '' }}>Sports</option>
+                                                    <option value="Economy"  {{ $news->category == 'Economy' ? 'selected' : '' }}>Economy</option>
+                                                    <option value="Politics"  {{ $news->category == 'Politics' ? 'selected' : '' }}>Politics</option>
+                                                    <option value="International"  {{ $news->category == 'International' ? 'selected' : '' }}>International</option>
+                                                    <option value="National"  {{ $news->category == 'National' ? 'selected' : '' }}>National</option>
+                                                    <option value="Breaking_news"  {{ $news->category == 'Breaking_news' ? 'selected' : '' }}>Breaking News</option>
+                                                </select>
+                                    
+                                                <button type="submit" class="btn btn-success">Update</button>
+                                            </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+
                                 @endforeach
                             @endif
                         </table>
@@ -53,27 +116,10 @@
 </div>
 
 
-<!-- Modal ওপেন করার জন্য Button -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Open Modal
-</button>
 
-<!-- Modal এর HTML কোড -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                এখানে তুমি যেকোনো কনটেন্ট দিতে পারো।
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
+  
 
 @endsection

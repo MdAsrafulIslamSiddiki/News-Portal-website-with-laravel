@@ -23,5 +23,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/add-news', [NewsController::class, 'add_news'] )->name('news.add');
     Route::post('/store-news', [NewsController::class, 'store_news'] )->name('news.store');
     Route::get('/delete-news/{id}', [NewsController::class, 'delete_news'])->name('news.delete');
+    Route::patch('/update-news/{id}', [NewsController::class, 'update_news'])->name('news.update');
     
 });
