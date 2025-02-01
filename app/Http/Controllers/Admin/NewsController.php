@@ -6,6 +6,7 @@ use App\Models\News;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -14,7 +15,9 @@ class NewsController extends Controller
     }
     
     function all_news(){
-        return view('backend.allNews');
+        $news = News::latest()->get();
+        // dd($news);
+        return view('backend.allNews', compact('news'));
     }
     function store_news(Request $request) {
         $request->validate([
@@ -45,5 +48,16 @@ class NewsController extends Controller
             return back();
         }
 
+    }
+    function delete_news($id) {
+        $news = News::findOrFail($id);
+
+        if($news->image && Storage::disk('public')->exists($news->image)){
+            Storage::disk('public')->delete($news->image);
+        }
+        $news->delete();
+        notify()->success('News deleted successfully!', 'Success');
+        return back();
+        
     }
 }

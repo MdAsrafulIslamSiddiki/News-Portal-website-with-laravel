@@ -22,5 +22,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/all-news', [NewsController::class, 'all_news'] )->name('news.all');
     Route::get('/add-news', [NewsController::class, 'add_news'] )->name('news.add');
     Route::post('/store-news', [NewsController::class, 'store_news'] )->name('news.store');
+    Route::get('/delete-news/{id}', [NewsController::class, 'delete_news'])->name('news.delete');
     
 });
