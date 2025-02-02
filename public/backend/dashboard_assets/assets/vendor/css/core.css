@@ -8914,6 +8914,35 @@ li:not(:first-child) .dropdown-item, .dropdown-menu .dropdown-item:not(:first-ch
   box-shadow: none !important;
 }
 
+.btn-primary {
+  background-color: #0d6efd !important; /* Default Bootstrap Primary Color */
+  border-color: #0d6efd !important;
+  color: white !important;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.btn-primary:hover {
+  background-color: #0b5ed7 !important; /* Darker shade */
+  border-color: #0a58ca !important;
+  box-shadow: 0px 4px 10px rgba(13, 110, 253, 0.4);
+}
+
+/* Active (Click) Effect */
+.btn-primary:active {
+  background-color: #0a58ca !important;
+  border-color: #0a53be !important;
+  box-shadow: 0px 2px 5px rgba(13, 110, 253, 0.5) inset;
+}
+
+/* Focus Effect */
+.btn-primary:focus {
+  outline: none !important;
+  box-shadow: 0px 0px 8px rgba(13, 110, 253, 0.6);
+}
+
+
 .pagination-lg .page-link,
 .pagination-lg > li > a:not(.page-link) {
   min-width: calc(2.8759615rem + calc(1px * 2));

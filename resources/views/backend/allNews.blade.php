@@ -77,7 +77,7 @@
                                                     <label class="form-label">Long Details</label>
                                                     <textarea class="form-control" name="long_details" >{{ $news->long_details }}</textarea>
                                                 </div>
-                                                <select class="form-select" name="category" required>
+                                                <select class="form-select mb-3" name="category" required>
                                                     <option value="">Select a news Category</option>
                                                     <option value="Agriculture"  {{ $news->category == 'Agriculture' ? 'selected' : '' }}>Agriculture</option>
                                                     <option value="Environment"  {{ $news->category == 'Environment' ? 'selected' : '' }}>Environment</option>
@@ -92,8 +92,10 @@
                                                     <option value="National"  {{ $news->category == 'National' ? 'selected' : '' }}>National</option>
                                                     <option value="Breaking_news"  {{ $news->category == 'Breaking_news' ? 'selected' : '' }}>Breaking News</option>
                                                 </select>
-                                    
-                                                <button type="submit" class="btn btn-success">Update</button>
+                                                
+                                                <div class="modal-footer d-flex justify-content-center">
+                                                    <button type="submit" class="btn btn-primary">Update News</button>
+                                                  </div>
                                             </form>
                                             </div>
                                         </div>

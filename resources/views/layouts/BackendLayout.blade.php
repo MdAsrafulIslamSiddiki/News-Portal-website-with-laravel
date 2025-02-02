@@ -38,6 +38,8 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('backend/dashboard_assets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/dashboard_assets/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('backend/dashboard_assets/assets/vendor/css/bootstrap.min.css') }}" /> --}}
+    
 
     <!-- Page CSS -->
 
