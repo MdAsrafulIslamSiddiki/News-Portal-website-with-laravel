@@ -15,4 +15,7 @@ class DashboardController extends Controller
         
         return view('backend.dashboard');
     }
+    function settings() {
+        return view('backend.settings');
+    }
 }

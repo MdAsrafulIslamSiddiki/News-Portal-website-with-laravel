@@ -17,8 +17,9 @@ Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::middleware('auth')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'] )->name('dashboard');
     Route::get('/log-out', [DashboardController::class, 'logout'])->name('admin.logout');
+    Route::get('/settings', [DashboardController::class, 'settings'])->name('admin.settings');
 
-    // category routes
+    // news routes
     Route::get('/all-news', [NewsController::class, 'all_news'] )->name('news.all');
     Route::get('/add-news', [NewsController::class, 'add_news'] )->name('news.add');
     Route::post('/store-news', [NewsController::class, 'store_news'] )->name('news.store');

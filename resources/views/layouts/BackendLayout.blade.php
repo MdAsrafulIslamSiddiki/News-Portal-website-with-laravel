@@ -128,26 +128,38 @@
           <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
-            <!-- Dashboards -->
+            <!-- menu -->
             <li class="menu-item {{ request()->routeIs('dashboard') ? 'active open' : '' }}">
               <a href="{{ route('dashboard') }}" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-home-smile"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
               </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('news.add') ? 'active open' : '' }}">
-              <a href="{{ route('news.add') }}" class="menu-link">
+            <li class="menu-item menu-item {{ request()->routeIs('news.add', 'news.all') ? 'active open' : '' }}">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bx-news'></i>
-                <div class="text-truncate" data-i18n="Dashboards">Add news</div>
+                <div class="text-truncate" data-i18n="Dashboards">news</div>
+                {{-- <span class="badge rounded-pill bg-danger ms-auto">2</span> --}}
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item {{ request()->routeIs('news.add') ? 'active open' : '' }}">
+                  <a href="{{ route('news.add') }}" class="menu-link">
+                    <div class="text-truncate" data-i18n="Dashboards">Add news</div>
+                  </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('news.all') ? 'active open' : '' }}">
+                  <a href="{{ route('news.all') }}" class="menu-link">
+                    <div class="text-truncate" data-i18n="Dashboards">All news</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item {{ request()->routeIs('admin.settings') ? 'active open' : '' }}">
+              <a href="{{ route('admin.settings') }}" class="menu-link ">
+                <i class='menu-icon tf-icons bx bx-cog'></i>
+                <div class="text-truncate" data-i18n="Dashboards">Settings</div>
               </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('news.all') ? 'active open' : '' }}">
-              <a href="{{ route('news.all') }}" class="menu-link">
-                <i class='menu-icon tf-icons bx bxs-news' ></i>
-                <div class="text-truncate" data-i18n="Dashboards">All news</div>
-              </a>
-            </li>
-
           </ul>
         </aside>
         <!-- / Menu -->

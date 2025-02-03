@@ -2,71 +2,49 @@
 
 @section('content')
         <!-- Top News Start-->
+
         <div class="top-news">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 tn-left">
-                        <div class="tn-img">
-                            <img src="{{ asset('frontend/assets/img/top-news-1.jpg') }}  " />
-                            <div class="tn-content">
-                                <div class="tn-content-inner">
-                                    <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                    <a class="tn-title" href="">Lorem ipsum dolor sit amet adipiscing elit</a>
+                        @if ($breakingNews->count() > 0)
+                            @php
+                                $latestNews = $breakingNews->first(); 
+                            @endphp
+                            <div class="tn-img">
+                                <img src="{{ File::exists(public_path('storage/' . $latestNews->image)) ? asset('storage/' . $latestNews->image) : asset('frontend/assets/img/no_image.jpg') }}" alt="{{ $latestNews->news_title }}" />
+                                <div class="tn-content">
+                                    <div class="tn-content-inner">
+                                        <a class="tn-date" href="#"><i class="far fa-clock"></i> {{ $latestNews->created_at->format('d-M-Y') }}</a>
+                                        <a class="tn-title"  href="#">{{ Str::limit($latestNews->news_title,50) }}</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
+
                     <div class="col-md-6 tn-right">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="tn-img">
-                                    <img src="{{ asset('frontend/assets/img/top-news-2.jpg') }}  " />
-                                    <div class="tn-content">
-                                        <div class="tn-content-inner">
-                                            <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="tn-title" href="">Integer faucibus pharetra odio</a>
+                            @foreach ($breakingNews->skip(1)->take(4) as $news)
+                                <div class="col-md-6">
+                                    <div class="tn-img">
+                                        <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}" />
+                                        {{-- <img src="{{ asset('storage/'.$news->image) }}" alt="{{ $news->news_title }}" /> --}}
+                                        <div class="tn-content">
+                                            <div class="tn-content-inner">
+                                                <a class="tn-date" href="#"><i class="far fa-clock"></i> {{ $news->created_at->format('d-M-Y') }}</a>
+                                                <a class="tn-title" href="#">{{ Str::limit($news->news_title,50) }}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="tn-img">
-                                    <img src="{{ asset('frontend/assets/img/top-news-3.jpg') }}  " />
-                                    <div class="tn-content">
-                                        <div class="tn-content-inner">
-                                            <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="tn-title" href="">Nulla vitae pharetra ligula</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="tn-img">
-                                    <img src="{{ asset('frontend/assets/img/top-news-4.jpg') }}  " />
-                                    <div class="tn-content">
-                                        <div class="tn-content-inner">
-                                            <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="tn-title" href="">Ut ac euismod tellus a blandit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="tn-img">
-                                    <img src="{{ asset('frontend/assets/img/top-news-5.jpg') }}  " />
-                                    <div class="tn-content">
-                                        <div class="tn-content-inner">
-                                            <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="tn-title" href="">Cras ac egestas sem nec euismod</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <!-- Top News End-->
 
 
@@ -75,46 +53,27 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>Sports</h2>
+                        <h2><i class="fas fa-align-justify"></i>National</h2>
                         <div class="row cn-slider">
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img src="{{ asset('frontend/assets/img/cat-news-1.jpg') }}  " />
-                                    <div class="cn-content">
-                                        <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="cn-title" href="">Cras sed semper puru vitae lobortis velit</a>
+                            @foreach ($nationalNews as $news)
+                                <div class="col-md-6">
+                                    <div class="cn-img">
+                                        <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
+                                        <div class="cn-content">
+                                            <div class="cn-content-inner">
+                                                <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
+                                                <a class="cn-title" href="">{{ Str::limit($news->news_title, 30) }}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img src="{{ asset('frontend/assets/img/cat-news-2.jpg') }}  " />
-                                    <div class="cn-content">
-                                        <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="cn-title" href="">Vestibulum ante ipsum primis</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img src="{{ asset('frontend/assets/img/cat-news-3.jpg') }}  " />
-                                    <div class="cn-content">
-                                        <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="cn-title" href="">Sed quis convallis lacus</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>Technology</h2>
+                        <h2><i class="fas fa-align-justify"></i>International</h2>
                         <div class="row cn-slider">
+                            @foreach ($internationalNews as $news)
                             <div class="col-md-6">
                                 <div class="cn-img">
                                     <img src="{{ asset('frontend/assets/img/cat-news-4.jpg') }}  " />
@@ -126,28 +85,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img src="{{ asset('frontend/assets/img/cat-news-5.jpg') }}  " />
-                                    <div class="cn-content">
-                                        <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="cn-title" href="">Phasellus vitae fermentum est</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img src="{{ asset('frontend/assets/img/cat-news-6.jpg') }}  " />
-                                    <div class="cn-content">
-                                        <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="cn-title" href="">Aenean ut varius dui</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -161,7 +99,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>Business</h2>
+                        <h2><i class="fas fa-align-justify"></i>Politics</h2>
                         <div class="row cn-slider">
                             <div class="col-md-6">
                                 <div class="cn-img">
@@ -199,7 +137,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>Entertainment</h2>
+                        <h2><i class="fas fa-align-justify"></i>Economy</h2>
                         <div class="row cn-slider">
                             <div class="col-md-6">
                                 <div class="cn-img">
