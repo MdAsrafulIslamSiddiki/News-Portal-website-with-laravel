@@ -35,14 +35,12 @@
                                 <div class="tn-content">
                                     <div class="tn-content-inner">
                                         <p class="tn-date" ><i class="far fa-clock"></i> {{ $latestBreakingNews->created_at->format('d-M-Y') }}</p>
-                                        <a class="tn-title" href="#">{{ $latestBreakingNews->news_title }}</a>
+                                        <a class="tn-title text-elllipsis-2" href="#">{{ $latestBreakingNews->news_title }}</a>
                                     </div>
                                 </div>
                             </div>
                         @endif
                     </div>
-                    
-
                     <div class="col-md-6 tn-right">
                         <div class="row">
                             @foreach ($breakingNews->skip(1)->take(4) as $news)
@@ -54,7 +52,7 @@
                                         <div class="tn-content">
                                             <div class="tn-content-inner">
                                                 <p class="tn-date" ><i class="far fa-clock"></i> {{ $news->created_at->format('d-M-Y') }}</p>
-                                                <a class="tn-title" href="#">{{ $news->news_title }}</a>
+                                                <a class="tn-title text-elllipsis-2" href="#">{{ $news->news_title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +83,7 @@
                                         <div class="cn-content">
                                             <div class="cn-content-inner">
                                                 <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                                <a class="cn-title" href="">{{ $news->news_title }}</a>
+                                                <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +103,7 @@
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
                                             <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                            <a class="cn-title" href="">{{ $news->news_title }}</a>
+                                            <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +132,7 @@
                                         <div class="cn-content">
                                             <div class="cn-content-inner">
                                                 <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                                <a class="cn-title" href="">{{ $news->news_title }}</a>
+                                                <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +152,7 @@
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
                                             <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                            <a class="cn-title" href="">{{ $news->news_title }}</a>
+                                            <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -173,10 +171,10 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 large-news">
                                 <h2><i class="fas fa-align-justify"></i>Sports News</h2>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 mb-4">
                                         @if ($sportsNews->count() > 0)
                                             @php
                                                 $latestSportsNews = $sportsNews->first();    
@@ -188,8 +186,8 @@
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title" href="">{{ $latestSportsNews->news_title }}</a>
-                                                <a class="mn-date" href=""><i class="far fa-clock"></i>{{ $latestSportsNews->created_at->format('d-M-Y') }}</a>
-                                                <p>
+                                                <p class="mn-date" ><i class="far fa-clock"></i>{{ $latestSportsNews->created_at->format('d-M-Y') }}</p>
+                                                <p class="text-elllipsis-4">
                                                     {{  $latestSportsNews->short_details }}
                                                 </p>
                                             </div>
@@ -205,17 +203,17 @@
                                                 </div>
                                                 <div class="mn-content">
                                                     <a class="mn-title" href="">{{ $news->news_title }}</a>
-                                                    <a class="mn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
+                                                    <p class="mn-date" ><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 large-news">
                                 <h2><i class="fas fa-align-justify"></i>Health News</h2>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 mb-4">
                                         @if ($healthNews->count() > 0)
                                             @php
                                                 $latestHealthNews = $healthNews->first();    
@@ -227,8 +225,8 @@
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title" href="">{{ $latestHealthNews->news_title }}</a>
-                                                <a class="mn-date" href=""><i class="far fa-clock"></i>{{ $latestHealthNews->created_at->format('d-M-Y') }}</a>
-                                                <p>
+                                                <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $latestHealthNews->created_at->format('d-M-Y') }}</p>
+                                                <p class="text-elllipsis-4">
                                                     {{  $latestHealthNews->short_details }}
                                                 </p>
                                             </div>
@@ -244,7 +242,46 @@
                                                 </div>
                                                 <div class="mn-content">
                                                     <a class="mn-title" href="">{{ $news->news_title }}</a>
-                                                    <a class="mn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
+                                                    <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 large-news">
+                                <h2><i class="fas fa-align-justify"></i>Technology News</h2>
+                                <div class="row">
+                                    <div class="col-lg-6 mb-4">
+                                        @if ($technologyNews->count() > 0)
+                                            @php
+                                                $latestTechnologyNews = $technologyNews->first();    
+                                            @endphp
+                                            <div class="mn-img">
+                                                <a href="">
+                                                    <img src="{{ File::exists(public_path('storage/'. $latestTechnologyNews->image)) ? asset('storage/'. $latestTechnologyNews->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $latestTechnologyNews->news_title }}"/>
+                                                </a>
+                                            </div>
+                                            <div class="mn-content">
+                                                <a class="mn-title" href="">{{ $latestTechnologyNews->news_title }}</a>
+                                                <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $latestTechnologyNews->created_at->format('d-M-Y') }}</p>
+                                                <p class="text-elllipsis-4">
+                                                    {{  $latestTechnologyNews->short_details }}
+                                                </p>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-lg-6">
+                                        @foreach ($technologyNews->skip(1)->take(5) as $news)  
+                                            <div class="mn-list">
+                                                <div class="mn-img">
+                                                    <a href="">
+                                                        <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
+                                                    </a>
+                                                </div>
+                                                <div class="mn-content">
+                                                    <a class="mn-title" href="">{{ $news->news_title }}</a>
+                                                    <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -254,65 +291,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="sidebar">
-                            <div class="sidebar-widget">
-                                <h2><i class="fas fa-align-justify"></i>Category</h2>
-                                <div class="category">
-                                    <ul class="fa-ul">
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">National</a></li>
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">International</a></li>
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Economics</a></li>
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Politics</a></li>
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Lifestyle</a></li>
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Technology</a></li>
-                                        <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Trades</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="sidebar-widget">
-                                <h2><i class="fas fa-align-justify"></i>Tags</h2>
-                                <div class="tags">
-                                    <a href="">National</a>
-                                    <a href="">International</a>
-                                    <a href="">Economics</a>
-                                    <a href="">Politics</a>
-                                    <a href="">Lifestyle</a>
-                                    <a href="">Technology</a>
-                                    <a href="">Trades</a>
-                                    <a href="">National</a>
-                                    <a href="">International</a>
-                                    <a href="">Economics</a>
-                                    <a href="">Politics</a>
-                                    <a href="">Lifestyle</a>
-                                    <a href="">Technology</a>
-                                    <a href="">Trades</a>
-                                </div>
-                            </div>
-
-                            <div class="sidebar-widget">
-                                <h2><i class="fas fa-align-justify"></i>Ads 1 column</h2>
-                                <div class="image">
-                                    <a href=""><img src="{{ asset('frontend/assets/img/adds-1.jpg') }}"   alt="Image"></a>
-                                </div>
-                            </div>
-
-                            <div class="sidebar-widget">
-                                <h2><i class="fas fa-align-justify"></i>Ads 2 column</h2>
-                                <div class="image">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <a href=""><img src="{{ asset('frontend/assets/img/adds-2.jpg') }}"   alt="Image"></a>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <a href=""><img src="{{ asset('frontend/assets/img/adds-2.jpg') }}"   alt="Image"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @include('layouts.FrontendSidebar')
                 </div>
             </div>
         </div>

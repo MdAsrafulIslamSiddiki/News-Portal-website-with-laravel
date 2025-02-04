@@ -16,8 +16,8 @@ class HomeController extends Controller
         $economyNews = News::where('category', 'Economy')->latest()->get();
         $sportsNews = News::where('category', 'Sports')->latest()->take(6)->get();
         $healthNews = News::where('category', 'Health')->latest()->get();
-        $educationNews = News::where('category', 'Education')->latest()->get();
         $technologyNews = News::where('category', 'Science_&_Technology')->latest()->get();
+        $educationNews = News::where('category', 'Education')->latest()->get();
         $entertainmentNews = News::where('category', 'Entertainment')->latest()->get();
         $environmentNews = News::where('category', 'Environment')->latest()->get();
         $agricultureNews = News::where('category', 'Agriculture')->latest()->get();

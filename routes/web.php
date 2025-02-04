@@ -5,13 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
-
-
+use App\Http\Controllers\Frontend\FrontendNewsController;
 
 Auth::routes();
 
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+Route::get('/category/{slug}', [FrontendNewsController::class, 'categoryNews'])->name('category.news');
+Route::get('/search', [FrontendNewsController::class, 'search'])->name('news.search');
+
 
 
 Route::middleware('auth')->group(function (){
