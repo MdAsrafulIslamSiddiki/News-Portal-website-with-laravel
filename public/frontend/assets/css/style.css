@@ -316,26 +316,38 @@ button.btn:hover {
 .top-news .tn-img {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: 180px;
 }
 
-/* .top-news .tn-img img {
+.tn-img a {
+    display: block;
     width: 100%;
-} */
-
-.tn-img {
-    width: 100%;
-    height: 180px; 
-    overflow: hidden; 
+    height: 100%;
+    position: relative;
 }
+
+.tn-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* পুরো ইমেজের উপর ব্ল্যাক শ্যাডো */
+    z-index: 1;
+}
+
 .tn-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .tn-left .tn-img {
-    width: 100%; 
-    height: 390px; 
-    overflow: hidden; 
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
 }
 
 .tn-left .tn-img img {
@@ -345,32 +357,35 @@ button.btn:hover {
 }
 
 @media (max-width: 768px) {
-    .tn-img {
+    .tn-img, .cn-img {
         height: 250px !important;
     }
 }
 
 .top-news .tn-img:hover img {
-    /* filter: blur(5px);
-    -webkit-filter: blur(5px); */
     transform: scale(1.1);
     transition: all 0.3s;
-
 }
 
 .top-news .tn-content {
     position: absolute;
-    top: 0; 
-    right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
+    right: 0;
     padding: 15px 10px 15px 20px;
-    background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
     display: flex;
     align-items: flex-end;
+    pointer-events: none; /* Content clickable না হয় */
+    z-index: 2; /* Text & Content শ্যাডোর উপর থাকবে */
 }
 
-.top-news .tn-content a.tn-date{
+.top-news .tn-content a.tn-date,
+.top-news .tn-content a.tn-title {
+    pointer-events: auto; /* Title ও Date ক্লিকেবল থাকবে */
+}
+
+.top-news .tn-content p.tn-date {
     display: block;
     width: 100%;
     margin-bottom: 5px;
@@ -385,12 +400,17 @@ button.btn:hover {
     margin-right: 5px;
 }
 
-.top-news .tn-content a.tn-date:hover {
+/* .top-news .tn-content a.tn-date:hover {
     text-decoration: underline;
-}
+} */
 
 .top-news .tn-content a.tn-title {
-    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* কয়টা লাইন দেখাবে সেটি নির্ধারণ */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
     width: 100%;
     color: #ffffff;
     font-size: 18px;
@@ -408,10 +428,11 @@ button.btn:hover {
 }
 
 @media(max-width: 768px) {
-    .top-news .tn-left .tn-content a.tn-title{
+    .top-news .tn-left .tn-content a.tn-title {
         font-size: 18px;
     }
 }
+
 
 
 /**********************************/
@@ -446,8 +467,18 @@ button.btn:hover {
     overflow: hidden;
 }
 
-.cat-news .cn-img img {
+/* .cat-news .cn-img img {
     width: 100%;
+} */
+.cn-img {
+    width: 100%;
+    height: 180px; 
+    overflow: hidden; 
+}
+.cn-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cat-news .cn-img:hover img {
@@ -490,7 +521,12 @@ button.btn:hover {
 }
 
 .cat-news .cn-content a.cn-title {
-    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
     width: 100%;
     color: #ffffff;
     font-size: 18px;
@@ -623,6 +659,12 @@ button.btn:hover {
 }
 
 .main-news .mn-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
     margin: 0;
 }
 
@@ -654,11 +696,17 @@ button.btn:hover {
 
 .main-news .mn-list .mn-content a.mn-title {
     display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
     width: 100%;
     color: #353535;
     font-size: 18px;
     font-weight: 400;
-    line-height: 20px;
+    /* line-height: 20px; */
     margin-bottom: 5px;
 }
 
