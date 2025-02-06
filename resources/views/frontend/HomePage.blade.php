@@ -6,22 +6,6 @@
         <div class="top-news">
             <div class="container-fluid">
                 <div class="row">
-                    {{-- <div class="col-md-6 tn-left">
-                        @if ($breakingNews->count() > 0)
-                            @php
-                                $latestBreakingNews = $breakingNews->first(); 
-                            @endphp
-                            <div class="tn-img">
-                                <img src="{{ File::exists(public_path('storage/' . $latestBreakingNews->image)) ? asset('storage/' . $latestBreakingNews->image) : asset('frontend/assets/img/no_image.jpg') }}" alt="{{ $latestBreakingNews->news_title }}" />
-                                <div class="tn-content">
-                                    <div class="tn-content-inner">
-                                        <a class="tn-date" href="#"><i class="far fa-clock"></i> {{ $latestBreakingNews->created_at->format('d-M-Y') }}</a>
-                                        <a class="tn-title"  href="#">{{ Str::limit($latestBreakingNews->news_title,50) }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    </div> --}}
                     <div class="col-md-6 tn-left">
                         @if ($breakingNews->count() > 0)
                             @php
@@ -29,30 +13,33 @@
                             @endphp
 
                             <div class="tn-img">
-                                <a href="#">
+                                <a href="{{ route('news.show', urlencode($latestBreakingNews->news_title)) }}">
                                     <img src="{{ File::exists(public_path('storage/' . $latestBreakingNews->image)) ? asset('storage/' . $latestBreakingNews->image) : asset('frontend/assets/img/no_image.jpg') }}" alt="{{ $latestBreakingNews->news_title }}" />
                                 </a>
                                 <div class="tn-content">
                                     <div class="tn-content-inner">
                                         <p class="tn-date" ><i class="far fa-clock"></i> {{ $latestBreakingNews->created_at->format('d-M-Y') }}</p>
-                                        <a class="tn-title text-elllipsis-2" href="#">{{ $latestBreakingNews->news_title }}</a>
+                                        <a class="tn-title text-elllipsis-2" href="{{ route('news.show', urlencode($latestBreakingNews->news_title)) }}">
+                                            {{ $latestBreakingNews->news_title }}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         @endif
                     </div>
+                    
                     <div class="col-md-6 tn-right">
                         <div class="row">
                             @foreach ($breakingNews->skip(1)->take(4) as $news)
                                 <div class="col-md-6">
                                     <div class="tn-img">
-                                        <a href="">
+                                        <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                             <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}" />
                                         </a>
                                         <div class="tn-content">
                                             <div class="tn-content-inner">
                                                 <p class="tn-date" ><i class="far fa-clock"></i> {{ $news->created_at->format('d-M-Y') }}</p>
-                                                <a class="tn-title text-elllipsis-2" href="#">{{ $news->news_title }}</a>
+                                                <a class="tn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -77,13 +64,13 @@
                             @foreach ($nationalNews as $news)
                                 <div class="col-md-6">
                                     <div class="cn-img">
-                                        <a href="">
+                                        <a  href="{{ route('news.show', urlencode($news->news_title)) }}">
                                             <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                         </a>
                                         <div class="cn-content">
                                             <div class="cn-content-inner">
-                                                <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                                <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
+                                                <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -97,13 +84,13 @@
                             @foreach ($internationalNews as $news)
                             <div class="col-md-6">
                                 <div class="cn-img">
-                                    <a href="">
+                                    <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                         <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                     </a>
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                            <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
+                                            <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                            <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -126,13 +113,13 @@
                             @foreach ($politicsNews as $news)
                                 <div class="col-md-6">
                                     <div class="cn-img">
-                                        <a href="">
+                                        <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                             <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                         </a>
                                         <div class="cn-content">
                                             <div class="cn-content-inner">
-                                                <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                                <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
+                                                <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -146,13 +133,13 @@
                             @foreach ($economyNews as $news)
                             <div class="col-md-6">
                                 <div class="cn-img">
-                                    <a href="">
+                                    <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                         <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                     </a>
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
-                                            <a class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</a>
-                                            <a class="cn-title text-elllipsis-2" href="">{{ $news->news_title }}</a>
+                                            <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                            <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -180,13 +167,13 @@
                                                 $latestSportsNews = $sportsNews->first();    
                                             @endphp
                                             <div class="mn-img">
-                                                <a href="">
+                                                <a href="{{ route('news.show', urlencode($latestSportsNews->news_title)) }}">
                                                     <img src="{{ File::exists(public_path('storage/'. $latestSportsNews->image)) ? asset('storage/'. $latestSportsNews->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $latestSportsNews->news_title }}"/>
                                                 </a>
                                             </div>
                                             <div class="mn-content">
-                                                <a class="mn-title" href="">{{ $latestSportsNews->news_title }}</a>
-                                                <p class="mn-date" ><i class="far fa-clock"></i>{{ $latestSportsNews->created_at->format('d-M-Y') }}</p>
+                                                <a class="mn-title" href="{{ route('news.show', urlencode($latestSportsNews->news_title)) }}">{{ $latestSportsNews->news_title }}</a>
+                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestSportsNews->created_at->format('d-M-Y') }}</p>
                                                 <p class="text-elllipsis-4">
                                                     {{  $latestSportsNews->short_details }}
                                                 </p>
@@ -197,12 +184,12 @@
                                         @foreach ($sportsNews->skip(1)->take(5) as $news)  
                                             <div class="mn-list">
                                                 <div class="mn-img">
-                                                    <a href="">
+                                                    <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                                         <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                                     </a>
                                                 </div>
                                                 <div class="mn-content">
-                                                    <a class="mn-title" href="">{{ $news->news_title }}</a>
+                                                    <a class="mn-title" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
                                                     <p class="mn-date" ><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 </div>
                                             </div>
@@ -219,13 +206,13 @@
                                                 $latestHealthNews = $healthNews->first();    
                                             @endphp
                                             <div class="mn-img">
-                                                <a href="">
+                                                <a href="{{ route('news.show', urlencode($latestHealthNews->news_title)) }}">
                                                     <img src="{{ File::exists(public_path('storage/'. $latestHealthNews->image)) ? asset('storage/'. $latestHealthNews->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $latestHealthNews->news_title }}"/>
                                                 </a>
                                             </div>
                                             <div class="mn-content">
-                                                <a class="mn-title" href="">{{ $latestHealthNews->news_title }}</a>
-                                                <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $latestHealthNews->created_at->format('d-M-Y') }}</p>
+                                                <a class="mn-title" href="{{ route('news.show', urlencode($latestHealthNews->news_title)) }}">{{ $latestHealthNews->news_title }}</a>
+                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestHealthNews->created_at->format('d-M-Y') }}</p>
                                                 <p class="text-elllipsis-4">
                                                     {{  $latestHealthNews->short_details }}
                                                 </p>
@@ -236,13 +223,13 @@
                                         @foreach ($healthNews->skip(1)->take(5) as $news)  
                                             <div class="mn-list">
                                                 <div class="mn-img">
-                                                    <a href="">
+                                                    <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                                         <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                                     </a>
                                                 </div>
                                                 <div class="mn-content">
-                                                    <a class="mn-title" href="">{{ $news->news_title }}</a>
-                                                    <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                    <a class="mn-title" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                                    <p class="mn-date"><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -258,13 +245,13 @@
                                                 $latestTechnologyNews = $technologyNews->first();    
                                             @endphp
                                             <div class="mn-img">
-                                                <a href="">
+                                                <a href="{{ route('news.show', urlencode($latestTechnologyNews->news_title)) }}">
                                                     <img src="{{ File::exists(public_path('storage/'. $latestTechnologyNews->image)) ? asset('storage/'. $latestTechnologyNews->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $latestTechnologyNews->news_title }}"/>
                                                 </a>
                                             </div>
                                             <div class="mn-content">
-                                                <a class="mn-title" href="">{{ $latestTechnologyNews->news_title }}</a>
-                                                <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $latestTechnologyNews->created_at->format('d-M-Y') }}</p>
+                                                <a class="mn-title" href="{{ route('news.show', urlencode($latestTechnologyNews->news_title)) }}">{{ $latestTechnologyNews->news_title }}</a>
+                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestTechnologyNews->created_at->format('d-M-Y') }}</p>
                                                 <p class="text-elllipsis-4">
                                                     {{  $latestTechnologyNews->short_details }}
                                                 </p>
@@ -275,13 +262,13 @@
                                         @foreach ($technologyNews->skip(1)->take(5) as $news)  
                                             <div class="mn-list">
                                                 <div class="mn-img">
-                                                    <a href="">
+                                                    <a href="{{ route('news.show', urlencode($news->news_title)) }}">
                                                         <img src="{{ File::exists(public_path('storage/' . $news->image)) ? asset('storage/' . $news->image) : asset('frontend/assets/img/no_image.jpg')}}" alt="{{ $news->news_title }}"/>
                                                     </a>
                                                 </div>
                                                 <div class="mn-content">
-                                                    <a class="mn-title" href="">{{ $news->news_title }}</a>
-                                                    <p class="mn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                    <a class="mn-title" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                                    <p class="mn-date"><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach

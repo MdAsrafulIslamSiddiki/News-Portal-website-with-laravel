@@ -20,4 +20,18 @@ class FrontendNewsController extends Controller
         // dd($news);
         return view('frontend.search', compact('news', 'query'));
     }
+    public function show($title)
+    {
+        $decodedTitle = urldecode($title);
+
+        $news = News::where('news_title', $decodedTitle)->firstOrFail();
+
+        $relatedNews = News::where('category', $news->category)
+                        ->where('id', '!=', $news->id)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+        // dd($news);
+        return view('frontend.singleNews', compact('news', 'relatedNews'));
+    }
 }

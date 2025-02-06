@@ -109,7 +109,7 @@
                     </div>
                     <div class="input-group ml-auto d-none d-lg-flex search" style="width: 100%; max-width: 300px;">
                         <form action="{{ route('news.search') }}" method="GET" class="input-group ml-auto d-none d-lg-flex search" style="width: 100%; max-width: 300px;">
-                            <input type="text" name="query" class="form-control border-0" placeholder="Keyword" required>
+                            <input type="text" name="query" class="form-control border-0" placeholder="Search here" required>
                             <div class="input-group-append">
                                 <button type="submit" class="text-dark bg-deep-orange border-0 px-3"><i class="fa fa-search"></i></button>
                             </div>

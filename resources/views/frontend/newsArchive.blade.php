@@ -3,11 +3,11 @@
 @section('content')
     
     @if($news->count() > 0)
-    <div class="main-news">
+    <div class="main-news mt-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="mt-3">
+                    <div>
                         <h3>Search Results for: {{ str_replace(['_', '-'], ' ', $slug) }}</h3>
                     </div>
                     <div class="row">

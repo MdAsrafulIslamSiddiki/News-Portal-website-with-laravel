@@ -12,6 +12,7 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/category/{slug}', [FrontendNewsController::class, 'categoryNews'])->name('category.news');
+Route::get('/news/{title}', [FrontendNewsController::class, 'show'])->name('news.show');
 Route::get('/search', [FrontendNewsController::class, 'search'])->name('news.search');
 
 
