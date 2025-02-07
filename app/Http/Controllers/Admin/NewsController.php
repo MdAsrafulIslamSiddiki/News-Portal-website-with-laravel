@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class NewsController extends Controller
 {
     use UploadMedia;
+    
     function add_news() {
         return view('backend.addNews');
     }

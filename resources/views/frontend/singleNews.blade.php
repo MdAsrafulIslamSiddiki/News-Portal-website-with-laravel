@@ -16,12 +16,13 @@
                                 <span class="category">ক্যাটাগরি: <strong>{{ str_replace(['_', '-'], ' ', $news->category) }}</strong></span> |
                                 <span class="date">প্রকাশের তারিখ: {{ $news->created_at->format('d M Y') }}</span>
                             </div>
-                            <div class=" mb-5">
-                                <img width="100%" height="300px" src="{{ asset('storage/'. $news->image) }}" alt="{{ $news->title }}" >
+                            <div class=" my-5">
+                                <img width="100%" height="100%" src="{{ asset('storage/'. $news->image) }}" alt="{{ $news->title }}" >
                             </div>
-                            <div class="fw-bold">
+                            <div class="fw-bold fs-5">
                                 <p>{{ $news->short_details }}</p>
                             </div>
+                            <p>{{ $news->long_details }}</p>
                         </div>
                     </div>
                 </div>
@@ -29,11 +30,18 @@
                 <!-- Related News Section -->
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <h3 class="related-news-title">সংশ্লিষ্ট সংবাদ</h3>
+                        <h3 class="related-news-title">Related News</h3>
                         <div class="related-news">
-                            <ul>
+                            <ul class="list-unstyled d-flex">
                                 @foreach($relatedNews as $related)
-                                    <li><a href="{{ route('news.show', $related->news_title) }}">{{ $related->news_title }}</a></li>
+                                <li class="col-lg-3">
+                                    <div >
+                                        <a href="{{ route('news.show', urlencode($related->news_title)) }}">
+                                            <img  src="{{asset('storage/'.$related->image)}}" alt="">
+                                        </a>
+                                        <a class="text-elllipsis-2" href="{{ route('news.show', urlencode($related->news_title)) }}">{{ $related->news_title }}</a>
+                                    </div>
+                                </li>
                                 @endforeach
                             </ul>
                         </div>

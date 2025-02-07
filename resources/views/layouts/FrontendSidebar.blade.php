@@ -4,13 +4,17 @@
             <h2><i class="fas fa-align-justify"></i>Category</h2>
             <div class="category">
                 <ul class="fa-ul">
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">National</a></li>
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">International</a></li>
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Economics</a></li>
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Politics</a></li>
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Lifestyle</a></li>
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Technology</a></li>
-                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">Trades</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'National') }}">National</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'International') }}">International</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Politics') }}">Politics</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Economy') }}">Economics</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Sports') }}">Sports</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Health') }}">Health</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Education') }}">Education</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Science_&_Technology') }}">Science & Technology</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Entertainment') }}">Entertainment</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Environment') }}">Environment</a></li>
+                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="{{ route('category.news', 'Agriculture') }}">Agriculture</a></li>
                 </ul>
             </div>
         </div>
@@ -18,20 +22,17 @@
         <div class="sidebar-widget">
             <h2><i class="fas fa-align-justify"></i>Tags</h2>
             <div class="tags">
-                <a href="">National</a>
-                <a href="">International</a>
-                <a href="">Economics</a>
-                <a href="">Politics</a>
-                <a href="">Lifestyle</a>
-                <a href="">Technology</a>
-                <a href="">Trades</a>
-                <a href="">National</a>
-                <a href="">International</a>
-                <a href="">Economics</a>
-                <a href="">Politics</a>
-                <a href="">Lifestyle</a>
-                <a href="">Technology</a>
-                <a href="">Trades</a>
+                <a href="{{ route('category.news', 'National') }}" class="">National</a>
+                <a href="{{ route('category.news', 'International') }}" class="">International</a>
+                <a href="{{ route('category.news', 'Politics') }}" class="">Politics</a>
+                <a href="{{ route('category.news', 'Economy') }}" class="">Economics</a>
+                <a href="{{ route('category.news', 'Sports') }}" class="">Sports</a>
+                <a href="{{ route('category.news', 'Health') }}" class="">Health</a>
+                <a href="{{ route('category.news', 'Education') }}" class="">Education</a>
+                <a href="{{ route('category.news', 'Science_&_Technology') }}" class="">Science & Technology</a>
+                <a href="{{ route('category.news', 'Entertainment') }}" class="">Entertainment</a>
+                <a href="{{ route('category.news', 'Environment') }}" class="">Environment</a>
+                <a href="{{ route('category.news', 'Agriculture') }}" class="">Agriculture</a>
             </div>
         </div>
 

@@ -11,5 +11,6 @@ class News extends Model
         "image",
         "short_details",
         "category",
+        "views"
     ];
 }

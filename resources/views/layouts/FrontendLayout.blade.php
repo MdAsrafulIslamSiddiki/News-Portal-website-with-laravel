@@ -6,12 +6,15 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Bootstrap Ecommerce Template" name="keywords">
         <meta content="Bootstrap Ecommerce Template Free Download" name="description">
+        <link rel="stylesheet" href="{{ asset('backend/dashboard_assets/assets/vendor/css/bootstrap.min.css') }}">
 
         <!-- Favicon -->
         <link href="{{ asset('frontend/assets/img/favicon.ico') }}" rel="icon">
 
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+        
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet"> --}}
 
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
