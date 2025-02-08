@@ -64,6 +64,33 @@ h6 {
     color: #ffffff;
 }
 
+/* ************************************** */
+/* ******* language change section ****** */
+/* ************************************** */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+}
+
+.dropdown select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.notranslate {
+    -webkit-user-select: none; /* Chrome/Opera/Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+} 
+/* Hide the Google Translate div */
+#google_element {
+    display: none;
+}
+
+
 /**********************************/
 /********* Form Input CSS *********/
 /**********************************/

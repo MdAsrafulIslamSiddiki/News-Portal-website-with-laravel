@@ -1,7 +1,9 @@
 @extends('layouts.FrontendLayout')
 
 @section('content')
+
         <!-- Top News Start-->
+
 
         <div class="top-news">
             <div class="container-fluid">
