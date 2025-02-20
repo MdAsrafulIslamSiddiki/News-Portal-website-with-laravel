@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Bootstrap Ecommerce Template" name="keywords">
     <meta content="Bootstrap Ecommerce Template Free Download" name="description">
-    <link rel="stylesheet" href="{{ asset('backend/dashboard_assets/assets/vendor/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
 
     <!-- Favicon -->
     <link href="{{ asset('frontend/assets/img/favicon.ico') }}" rel="icon">
@@ -392,7 +392,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h3 class="title">Get in Touch</h3>
+                        <h3 class="title">যোগাযোগ করুন</h3>
                         <div class="contact-info">
                             <p><i class="fa fa-map-marker"></i>123 Terry Lane, New York, USA</p>
                             <p><i class="fa fa-envelope"></i>email@example.com</p>
@@ -409,18 +409,23 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h3 class="title">Useful Links</h3>
+                        <h3 class="title">দ্রুত লিংক</h3>
                         <ul>
-                            <li><a href="#"></a></li>
-                            <li><a href="#">Aliquam</a></li>
-                            <li><a href="#">Fusce placerat</a></li>
-                            <li><a href="#">Nulla hendrerit</a></li>
-                            <li><a href="#">Maecenas</a></li>
+                            <li><a href="#">জাতীয়</a></li>
+                            <li><a href="#">আন্তর্জাতিক</a></li>
+                            <li><a href="#">রাজনীতি</a></li>
+                            <li><a href="#">অর্থনীতি</a></li>
+                            <li><a href="#">খেলাধুলা</a></li>
                         </ul>
                     </div>
                 </div>
+                
+                
+                
+                
+                
 
-                <div class="col-lg-3 col-md-6">
+                {{-- <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
                         <h3 class="title">Quick Links</h3>
                         <ul>
@@ -431,7 +436,7 @@
                             <li><a href="#">Elementum</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
 
 
 

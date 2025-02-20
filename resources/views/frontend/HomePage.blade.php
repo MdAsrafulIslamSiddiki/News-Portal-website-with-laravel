@@ -20,10 +20,13 @@
                                 </a>
                                 <div class="tn-content">
                                     <div class="tn-content-inner">
-                                        <p class="tn-date" ><i class="far fa-clock"></i> {{ $latestBreakingNews->created_at->format('d-M-Y') }}</p>
                                         <a class="tn-title text-elllipsis-2" href="{{ route('news.show', urlencode($latestBreakingNews->news_title)) }}">
                                             {{ $latestBreakingNews->news_title }}
                                         </a>
+                                        <p class="tn-date" >
+                                            <i class="far fa-clock"></i> 
+                                            {{ $latestBreakingNews->created_at->format('d-m-Y') }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -40,8 +43,8 @@
                                         </a>
                                         <div class="tn-content">
                                             <div class="tn-content-inner">
-                                                <p class="tn-date" ><i class="far fa-clock"></i> {{ $news->created_at->format('d-M-Y') }}</p>
                                                 <a class="tn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                                <p class="tn-date" ><i class="far fa-clock"></i> {{ $news->created_at->format('d-m-Y') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +64,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>National</h2>
+                        <h2><i class="fas fa-align-justify"></i>জাতীয়</h2>
                         <div class="row cn-slider">
                             @foreach ($nationalNews as $news)
                                 <div class="col-md-6">
@@ -71,8 +74,8 @@
                                         </a>
                                         <div class="cn-content">
                                             <div class="cn-content-inner">
-                                                <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                                <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -81,7 +84,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>International</h2>
+                        <h2><i class="fas fa-align-justify"></i>আন্তর্জাতিক</h2>
                         <div class="row cn-slider">
                             @foreach ($internationalNews as $news)
                             <div class="col-md-6">
@@ -91,8 +94,8 @@
                                     </a>
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
-                                            <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                             <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                            <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +113,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>Politics</h2>
+                        <h2><i class="fas fa-align-justify"></i>রাজনীতি</h2>
                         <div class="row cn-slider">
                             @foreach ($politicsNews as $news)
                                 <div class="col-md-6">
@@ -120,8 +123,8 @@
                                         </a>
                                         <div class="cn-content">
                                             <div class="cn-content-inner">
-                                                <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                                 <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                                <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +133,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h2><i class="fas fa-align-justify"></i>Economy</h2>
+                        <h2><i class="fas fa-align-justify"></i>অর্থনীতি</h2>
                         <div class="row cn-slider">
                             @foreach ($economyNews as $news)
                             <div class="col-md-6">
@@ -140,8 +143,8 @@
                                     </a>
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
-                                            <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
                                             <a class="cn-title text-elllipsis-2" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
+                                            <p class="cn-date" href=""><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +164,7 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-12 large-news">
-                                <h2><i class="fas fa-align-justify"></i>Sports News</h2>
+                                <h2><i class="fas fa-align-justify"></i>খেলাধুলা</h2>
                                 <div class="row">
                                     <div class="col-lg-6 mb-4">
                                         @if ($sportsNews->count() > 0)
@@ -175,10 +178,13 @@
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title" href="{{ route('news.show', urlencode($latestSportsNews->news_title)) }}">{{ $latestSportsNews->news_title }}</a>
-                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestSportsNews->created_at->format('d-M-Y') }}</p>
-                                                <p class="text-elllipsis-4">
+                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestSportsNews->created_at->format('d-m-Y') }}</p>
+                                                <p class="text-elllipsis-3">
                                                     {{  $latestSportsNews->short_details }}
                                                 </p>
+                                                <div class="d-flex justify-content-end">
+                                                    <a href="{{ route('news.show', urlencode($latestSportsNews->news_title)) }}" class="btn-sm btn-secondary">আরও পড়ুন</a>
+                                                </div>
                                             </div>
                                         @endif
                                     </div>
@@ -192,7 +198,7 @@
                                                 </div>
                                                 <div class="mn-content">
                                                     <a class="mn-title" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
-                                                    <p class="mn-date" ><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                    <p class="mn-date" ><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -200,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 large-news">
-                                <h2><i class="fas fa-align-justify"></i>Health News</h2>
+                                <h2><i class="fas fa-align-justify"></i>স্বাস্থ্য</h2>
                                 <div class="row">
                                     <div class="col-lg-6 mb-4">
                                         @if ($healthNews->count() > 0)
@@ -214,10 +220,13 @@
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title" href="{{ route('news.show', urlencode($latestHealthNews->news_title)) }}">{{ $latestHealthNews->news_title }}</a>
-                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestHealthNews->created_at->format('d-M-Y') }}</p>
-                                                <p class="text-elllipsis-4">
+                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestHealthNews->created_at->format('d-m-Y') }}</p>
+                                                <p class="text-elllipsis-3">
                                                     {{  $latestHealthNews->short_details }}
                                                 </p>
+                                                <div class="d-flex justify-content-end">
+                                                    <a href="{{ route('news.show', urlencode($latestHealthNews->news_title)) }}" class="btn-sm btn-secondary">আরও পড়ুন</a>
+                                                </div>
                                             </div>
                                         @endif
                                     </div>
@@ -231,7 +240,7 @@
                                                 </div>
                                                 <div class="mn-content">
                                                     <a class="mn-title" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
-                                                    <p class="mn-date"><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                    <p class="mn-date"><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -239,7 +248,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 large-news">
-                                <h2><i class="fas fa-align-justify"></i>Technology News</h2>
+                                <h2><i class="fas fa-align-justify"></i>বিজ্ঞান ও প্রযুক্তি</h2>
                                 <div class="row">
                                     <div class="col-lg-6 mb-4">
                                         @if ($technologyNews->count() > 0)
@@ -253,10 +262,13 @@
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title" href="{{ route('news.show', urlencode($latestTechnologyNews->news_title)) }}">{{ $latestTechnologyNews->news_title }}</a>
-                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestTechnologyNews->created_at->format('d-M-Y') }}</p>
-                                                <p class="text-elllipsis-4">
+                                                <p class="mn-date"><i class="far fa-clock"></i>{{ $latestTechnologyNews->created_at->format('d-m-Y') }}</p>
+                                                <p class="text-elllipsis-3">
                                                     {{  $latestTechnologyNews->short_details }}
                                                 </p>
+                                                <div class="d-flex justify-content-end">
+                                                    <a href="{{ route('news.show', urlencode($latestTechnologyNews->news_title)) }}" class="btn-sm btn-secondary">আরও পড়ুন</a>
+                                                </div>
                                             </div>
                                         @endif
                                     </div>
@@ -270,7 +282,7 @@
                                                 </div>
                                                 <div class="mn-content">
                                                     <a class="mn-title" href="{{ route('news.show', urlencode($news->news_title)) }}">{{ $news->news_title }}</a>
-                                                    <p class="mn-date"><i class="far fa-clock"></i>{{ $news->created_at->format('d-M-Y') }}</p>
+                                                    <p class="mn-date"><i class="far fa-clock"></i>{{ $news->created_at->format('d-m-Y') }}</p>
                                                 </div>
                                             </div>
                                         @endforeach

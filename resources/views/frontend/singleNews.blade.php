@@ -30,7 +30,7 @@
                 <!-- Related News Section -->
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <h3 class="related-news-title">Related News</h3>
+                        <h3 class="related-news-title">সম্পর্কিত সংবাদ</h3>
                         <div class="related-news">
                             <ul class="list-unstyled d-flex">
                                 @foreach($relatedNews as $related)

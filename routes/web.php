@@ -19,6 +19,7 @@ Route::get('/search', [FrontendNewsController::class, 'search'])->name('news.sea
 
 Route::middleware('auth')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'] )->name('dashboard');
+    Route::get('/admin-profile', [DashboardController::class, 'admin_profile'] )->name('admin.profile');
     Route::get('/log-out', [DashboardController::class, 'logout'])->name('admin.logout');
     // Route::get('/settings', [DashboardController::class, 'settings'])->name('admin.settings');
 

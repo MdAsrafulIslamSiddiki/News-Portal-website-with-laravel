@@ -201,16 +201,16 @@
                     href="javascript:void(0);"
                     data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="{{ getProfileImage() }}" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{{ getProfileImage() }}" class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{ route('admin.profile') }}">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="{{ getProfileImage() }}" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="{{ getProfileImage() }}" class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">

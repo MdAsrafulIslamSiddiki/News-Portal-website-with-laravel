@@ -23,7 +23,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <p class="text-elllipsis-8">{{$item->short_details }}</p>
-                                            <a href="{{ route('news.show', urlencode($item->news_title)) }}" class="btn btn-sm btn-dark">Read More</a>
+                                            <a href="{{ route('news.show', urlencode($item->news_title)) }}" class="btn btn-sm btn-dark">আরও পড়ুন</a>
                                         </div>
                                     </div>
                                 </div>
@@ -44,6 +44,6 @@
 
         
     @else
-        <p class="text-center">No news found in this category.</p>
+        <p class="text-center">এই বিভাগে কোন খবর পাওয়া যায়নি।</p>
     @endif
 @endsection

@@ -449,7 +449,7 @@ button.btn:hover {
 .top-news .tn-content p.tn-date {
     display: block;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     color: #ffffff;
     font-size: 14px;
     font-weight: 400;
@@ -572,7 +572,7 @@ button.btn:hover {
 .cat-news .cn-content p.cn-date {
     display: block;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     color: #ffffff;
     font-size: 14px;
     font-weight: 400;
@@ -1268,14 +1268,23 @@ button.btn:hover {
     text-overflow: ellipsis;
     white-space: normal;
 }
-.text-elllipsis-4 {
+.text-elllipsis-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/* .text-elllipsis-4 {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-}
+} */
 
 .text-elllipsis-8 {
     display: -webkit-box;
