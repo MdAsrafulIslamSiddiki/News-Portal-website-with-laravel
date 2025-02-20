@@ -154,12 +154,12 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-item {{ request()->routeIs('admin.settings') ? 'active open' : '' }}">
+            {{-- <li class="menu-item {{ request()->routeIs('admin.settings') ? 'active open' : '' }}">
               <a href="{{ route('admin.settings') }}" class="menu-link ">
                 <i class='menu-icon tf-icons bx bx-cog'></i>
                 <div class="text-truncate" data-i18n="Dashboards">Settings</div>
               </a>
-            </li>
+            </li> --}}
           </ul>
         </aside>
         <!-- / Menu -->
@@ -219,29 +219,6 @@
                           </div>
                         </div>
                       </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider my-1"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user bx-md me-3"></i><span>My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#"> <i class="bx bx-cog bx-md me-3"></i><span>Settings</span> </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card bx-md me-3"></i
-                          ><span class="flex-grow-1 align-middle">Billing Plan</span>
-                          <span class="flex-shrink-0 badge rounded-pill bg-danger">4</span>
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider my-1"></div>
                     </li>
                     <li>
                       <a class="dropdown-item" href="{{ route('admin.logout') }}">

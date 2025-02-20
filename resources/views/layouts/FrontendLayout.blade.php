@@ -29,50 +29,282 @@
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid d-none d-lg-block">
-        <div class="row align-items-center bg-dark px-lg-5">
-            <div class="col-lg-9">
+    <div class="container-fluid topbar d-lg-block">
+        <div class="row d-flex justify-content-between align-items-center bg-dark px-lg-5">
+            <div class="col-6 col-lg-3">
                 <nav class="navbar navbar-expand-sm bg-dark p-0">
                     <ul class="navbar-nav ml-n2">
                         <li class="nav-item ">
                             <p class="nav-link text-white small mb-0" href="#" id="currentDate"></p>
                         </li>
-                        {{-- <li class="nav-item border-right border-secondary">
-                                <a class="nav-link text-white small" href="#">Advertise</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white small" href="#">Contact</a>
-                            </li> --}}
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-3 text-right d-none d-md-block">
-                <nav class="navbar navbar-expand-sm bg-dark p-0">
-                    <ul class="navbar-nav ml-auto mr-n2 social">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#"><small class="fab fa-twitter"></small></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#"><small class="fab fa-facebook-f"></small></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#"><small class="fab fa-linkedin-in"></small></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#"><small class="fab fa-instagram"></small></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#"><small
-                                    class="fab fa-google-plus-g"></small></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#"><small class="fab fa-youtube"></small></a>
-                        </li>
-                    </ul>
-                </nav>
+            <div class="col-6 col-lg-2 text-right d-md-block">
+                
+                <!-- Custom Dropdown with Search (using Select2) -->
+                <div class="language-dropdown notranslate">
+                    <select id="customLangSelector" onchange="setLanguageFromDropdown()">
+                        <option value="bn">বাংলা</option>
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="oc">Occitan</option>
+                        <option value="as">অসমীয়া</option>
+                        <option value="ay">Aymara</option>
+                        <option value="ga">Gaeilge</option>
+                        <option value="is">Íslenska</option>
+                        <option value="awa">अवधी</option>
+                        <option value="ach">Acholi</option>
+                        <option value="az">Azərbaycan dili</option>
+                        <option value="aa">Afar</option>
+                        <option value="af">Afrikaans</option>
+                        <option value="ab">Abkhaz</option>
+                        <option value="av">Avar</option>
+                        <option value="am">Amharic</option>
+                        <option value="ar">العربية</option>
+                        <option value="hy">Հայերեն</option>
+                        <option value="sq">Shqip</option>
+                        <option value="alz">Avar</option>
+                        <option value="ace">Assiniboine</option>
+                        <option value="yua">Yukatek Maya</option>
+                        <option value="uk">Українська</option>
+                        <option value="ug">ئۇيغۇرچە</option>
+                        <option value="yo">Yorùbá</option>
+                        <option value="en">English</option>
+                        <option value="ig">Igbo</option>
+                        <option value="it">Italiano</option>
+                        <option value="yi">ייִדיש</option>
+                        <option value="iu-Latn">Inuktitut (Latin)</option>
+                        <option value="iu">Inuktitut (Syllabics)</option>
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="iba">Iban</option>
+                        <option value="sah">Саха тыла</option>
+                        <option value="ilo">Ilokano</option>
+                        <option value="uz">O'zbek</option>
+                        <option value="udm">Udmurt</option>
+                        <option value="ur">اردو</option>
+                        <option value="ee">Aeway</option>
+                        <option value="et">Eesti</option>
+                        <option value="or">ଓଡ଼ିଆ</option>
+                        <option value="war">Waray</option>
+                        <option value="cy">Welsh </option>
+                        <option value="om">Oromo</option>
+                        <option value="wo">Wolof</option>
+                        <option value="os">Ossetian</option>
+                        <option value="trp">Kokborok</option>
+                        <option value="kk">Kazakh</option>
+                        <option value="co">Corsican</option>
+                        <option value="ca">Català</option>
+                        <option value="kr">Kanuri</option>
+                        <option value="kn">Kannada</option>
+                        <option value="pam">Kapampangan</option>
+                        <option value="kl">Kalaliisut</option>
+                        <option value="kg">Kikongo</option>
+                        <option value="cgg">Kiga</option>
+                        <option value="ktu">Kituba</option>
+                        <option value="rw">Kinyarwanda</option>
+                        <option value="ky">Kyrgyz</option>
+                        <option value="ku">Kurdish (Kurmanji)</option>
+                        <option value="ckb">Kurdish (Sorani)</option>
+                        <option value="kek">K'iche</option>
+                        <option value="qu">Quechu</option>
+                        <option value="gom">Konkani</option>
+                        <option value="kv">Komi</option>
+                        <option value="ko">한국어 (Korean)</option>
+                        <option value="yue">Cantonese</option>
+                        <option value="kri">Creole</option>
+                        <option value="crh-Latn">Crimean Tatar (Latin)</option>
+                        <option value="crh">Къырым Татар (Crimean Tatar Cyrillic)</option>
+                        <option value="hr">Hrvatski</option>
+                        <option value="kha">Khasi</option>
+                        <option value="km">ខ្មែរ (Khmer)</option>
+                        <option value="gaa">Ga</option>
+                        <option value="gu">ગુજરાતી (Gujarati)</option>
+                        <option value="gn">Guarani</option>
+                        <option value="gl">Galego</option>
+                        <option value="el">Ελληνικά (Greek)</option>
+                        <option value="ch">Chamorro</option>
+                        <option value="ny">Chichewa</option>
+                        <option value="zh-TW">Traditional Chinese</option>
+                        <option value="zh-CN">Simplified Chinese</option>
+                        <option value="chk">Chukchi</option>
+                        <option value="cv">Chuvash</option>
+                        <option value="cs">Čeština</option>
+                        <option value="ce">Chechen</option>
+                        <option value="ceb">Cebuano</option>
+                        <option value="dz">ཇོང་ཁ (Dzongkha)</option>
+                        <option value="ka">ქართული (Georgian)</option>
+                        <option value="ja">日本語 (Japanese)</option>
+                        <option value="zap">Zapotec</option>
+                        <option value="jw">Javanese</option>
+                        <option value="jam">Jamaican Patois</option>
+                        <option value="de">Deutsch (German)</option>
+                        <option value="kac">Jingpo</option>
+                        <option value="dyu">Zulu</option>
+                        <option value="zu">isiZulu (Zulu)</option>
+                        <option value="xh">Xhosa</option>
+                        <option value="ak">Twi</option>
+                        <option value="tyv">Tuvan</option>
+                        <option value="tpi">Tok Pisin</option>
+                        <option value="to">Le Tongan</option>
+                        <option value="ber-Latn">Tamazight</option>
+                        <option value="ber">Tamazight (Tifinagh)</option>
+                        <option value="ndc-ZW">Dawa</option>
+                        <option value="nl">Nederlands (Dutch)</option>
+                        <option value="din">Dinka</option>
+                        <option value="doi">Dogri</option>
+                        <option value="dov">Dombi</option>
+                        <option value="da">Dansk (Danish)</option>
+                        <option value="tg">Tajik</option>
+                        <option value="tt">Tatar</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="ty">Tahitian</option>
+                        <option value="ti">Tigrinya</option>
+                        <option value="bo">བོད་ཡིག (Tibetan)</option>
+                        <option value="tiv">Tiv</option>
+                        <option value="tum">Tumbuka</option>
+                        <option value="tk">Türkmen</option>
+                        <option value="tr">Türkçe (Turkish)</option>
+                        <option value="tcy">Tulu</option>
+                        <option value="tet">Tetum</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="th">ภาษาไทย (Thai)</option>
+                        <option value="fa-AF">دری (Dari)</option>
+                        <option value="dv">Dhivehi</option>
+                        <option value="bm-Nkoo">Na'vi</option>
+                        <option value="no">Norsk (Norwegian)</option>
+                        <option value="nhe">Nahuatl (Eastern Huasteca)</option>
+                        <option value="nus">Nuer</option>
+                        <option value="new">नेपाली (Newar)</option>
+                        <option value="ne">नेपाली (Nepali)</option>
+                        <option value="nr">Ndebele (South)</option>
+                        <option value="pt-PT">Português (Portugal)</option>
+                        <option value="pt">Português (Brazil)</option>
+                        <option value="ps">پښتو (Pashto)</option>
+                        <option value="pag">Pangasinan</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Gurmukhi Punjabi)</option>
+                        <option value="pa-Arab">پنجابی (Shahmukhi Punjabi)</option>
+                        <option value="pap">Papiamento</option>
+                        <option value="pl">Polski (Polish)</option>
+                        <option value="fon">Fon</option>
+                        <option value="fr">Français (French)</option>
+                        <option value="fr-CA">Français (Canada)</option>
+                        <option value="fa">فارسی (Persian)</option>
+                        <option value="fj">Fijian</option>
+                        <option value="fi">Suomi (Finnish)</option>
+                        <option value="tl">Filipino</option>
+                        <option value="ff">Fulani</option>
+                        <option value="fo">Føroyskt (Faroese)</option>
+                        <option value="fur">Friulian</option>
+                        <option value="fy">Frisian</option>
+                        <option value="bs">Bosanski (Bosnian)</option>
+                        <option value="bci">Baulé</option>
+                        <option value="bts">Batak Simalungun</option>
+                        <option value="btx">Batak Karo</option>
+                        <option value="bbc">Batak Toba</option>
+                        <option value="bm">Bamanankan (Bambara)</option>
+                        <option value="my">မြန်မာစာ (Burmese)</option>
+                        <option value="ban">Bali</option>
+                        <option value="bal">بلوچی (Balochi)</option>
+                        <option value="ba">Башҡорт теле (Bashkir)</option>
+                        <option value="eu">Euskara (Basque)</option>
+                        <option value="bik">Bicolano</option>
+                        <option value="bua">Bura</option>
+                        <option value="bg">Български (Bulgarian)</option>
+                        <option value="bew">Betawi</option>
+                        <option value="bem">Bemba</option>
+                        <option value="be">Беларуская (Belarusian)</option>
+                        <option value="br">Brezhoneg (Breton)</option>
+                        <option value="vi">Tiếng Việt (Vietnamese)</option>
+                        <option value="vec">Veneto (Venetian)</option>
+                        <option value="ve">Tshivenda</option>
+                        <option value="bho">भोजपुरी (Bhojpuri)</option>
+                        <option value="hmn">Mong</option>
+                        <option value="mn">Монгол (Mongolian)</option>
+                        <option value="mfe">Kreol Morisien (Mauritian Creole)</option>
+                        <option value="mak">Makassarese</option>
+                        <option value="mad">Madurese</option>
+                        <option value="mam">Mam</option>
+                        <option value="mi">Māori</option>
+                        <option value="mwr">मारवाड़ी (Marwari)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="mh">Marshallese</option>
+                        <option value="ms-Arab">Malay (Jawi)</option>
+                        <option value="mg">Malagasy</option>
+                        <option value="ms">Dhivehi</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="mt">Malti (Maltese)</option>
+                        <option value="lus">Mizo</option>
+                        <option value="chm">মিডো Mido Mari</option>
+                        <option value="min">Minangkabau</option>
+                        <option value="mni-Mtei">মৈতৈলোন (Meitei)</option>
+                        <option value="mai">मैथिली (Maithili)</option>
+                        <option value="gv">Max</option>
+                        <option value="mk">Македонски (Macedonian)</option>
+                        <option value="rn">Rundi</option>
+                        <option value="ru">Русский (Russian)</option>
+                        <option value="rom">România (Romanian)</option>
+                        <option value="ro">Română (Romanian)</option>
+                        <option value="lo">ລາວ (Lao)</option>
+                        <option value="ltg">Latgalian</option>
+                        <option value="lv">Latviešu (Latvian)</option>
+                        <option value="la">Latina (Latin)</option>
+                        <option value="lij">Ligure (Ligurian)</option>
+                        <option value="ln">Lingala</option>
+                        <option value="lt">Lietuvių (Lithuanian)</option>
+                        <option value="li">Limburgish</option>
+                        <option value="luo">Luo</option>
+                        <option value="lb">Lëtzebuergesch (Luxembourgish)</option>
+                        <option value="lg">Luganda</option>
+                        <option value="lmo">Lombard</option>
+                        <option value="shn">Shan</option>
+                        <option value="lua">Ciluba</option>
+                        <option value="sw">Kiswahili (Swahili)</option>
+                        <option value="sa">संस्कृत (Sanskrit)</option>
+                        <option value="szl">Śląski (Silesian)</option>
+                        <option value="sat">Santali (Ol Chiki)</option>
+                        <option value="sat-Latn">Santali (Latin)</option>
+                        <option value="sg">Sango</option>
+                        <option value="se">Sámegiella (Northern Sami)</option>
+                        <option value="sm">Gagana Samoa (Samoan)</option>
+                        <option value="sr">Српски (Serbian)</option>
+                        <option value="si">සිංහල (Sinhalese)</option>
+                        <option value="sd">سنڌي (Sindhi)</option>
+                        <option value="scn">Sicilianu (Sicilian)</option>
+                        <option value="sv">Svenska (Swedish)</option>
+                        <option value="su">سوداني (Sudanese)</option>
+                        <option value="sus">Susu</option>
+                        <option value="nso">Sepedi</option>
+                        <option value="crs">Seselwa (Seychellois Creole)</option>
+                        <option value="st">Sesotho</option>
+                        <option value="ts">Songa</option>
+                        <option value="sn">Sona</option>
+                        <option value="so">Soomaali (Somali)</option>
+                        <option value="ss">siSwati (Swati)</option>
+                        <option value="tn">Swahili</option>
+                        <option value="gd">Gàidhlig (Scottish Gaelic)</option>
+                        <option value="es">Español (Spanish)</option>
+                        <option value="eo">Esperanto</option>
+                        <option value="sk">Slovenčina (Slovak)</option>
+                        <option value="sl">Slovenščina (Slovenian)</option>
+                        <option value="ht">Kreyòl Ayisyen (Haitian Creole)</option>
+                        <option value="ha">Hausa</option>
+                        <option value="haw">ʻŌlelo Hawaiʻi (Hawaiian)</option>
+                        <option value="cnh">হাকা Hakka Chinese</option>
+                        <option value="hu">Magyar (Hungarian)</option>
+                        <option value="hrx">Hunsrik</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                        <option value="iw">עברית (Hebrew)</option>
+                        <option value="hil">Hiligaynon</option>
+                    </select>
+                </div>
+                <!-- Google Translate Widget (hidden) -->
+                <div id="google_element"></div>
+
             </div>
         </div>
-        <div class="row align-items-center bg-white py-3 px-lg-5">
+        <div class="row align-items-center topbar-logo bg-white py-3 px-lg-5">
             <div class="col-lg-12 d-flex justify-content-center">
                 <a href="{{ route('homepage') }}" class="navbar-brand p-0 d-none d-lg-block">
                     <h1 class="m-0 display-4 text-uppercase text-deep-orange">Biz<span
@@ -97,45 +329,43 @@
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
                     <a href="{{ route('homepage') }}"
-                        class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                        class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">হোম</a>
                     <a href="{{ route('category.news', 'Breaking_news') }}"
-                        class="nav-item nav-link {{ Request::is('category/Breaking_news') ? 'active' : '' }}">Breaking
-                        News</a>
+                        class="nav-item nav-link {{ Request::is('category/Breaking_news') ? 'active' : '' }}">সর্বশেষ সংবাদ</a>
                     <a href="{{ route('category.news', 'National') }}"
-                        class="nav-item nav-link {{ Request::is('category/National') ? 'active' : '' }}">National</a>
+                        class="nav-item nav-link {{ Request::is('category/National') ? 'active' : '' }}">জাতীয়</a>
                     <a href="{{ route('category.news', 'International') }}"
-                        class="nav-item nav-link {{ Request::is('category/International') ? 'active' : '' }}">International</a>
+                        class="nav-item nav-link {{ Request::is('category/International') ? 'active' : '' }}">আন্তর্জাতিক</a>
                     <a href="{{ route('category.news', 'Politics') }}"
-                        class="nav-item nav-link {{ Request::is('category/Politics') ? 'active' : '' }}">Politics</a>
+                        class="nav-item nav-link {{ Request::is('category/Politics') ? 'active' : '' }}">রাজনীতি</a>
                     <a href="{{ route('category.news', 'Economy') }}"
-                        class="nav-item nav-link {{ Request::is('category/Economy') ? 'active' : '' }}">Economy</a>
+                        class="nav-item nav-link {{ Request::is('category/Economy') ? 'active' : '' }}">অর্থনীতি</a>
                     <a href="{{ route('category.news', 'Sports') }}"
-                        class="nav-item nav-link {{ Request::is('category/Sports') ? 'active' : '' }}">Sports</a>
+                        class="nav-item nav-link {{ Request::is('category/Sports') ? 'active' : '' }}">খেলাধুলা</a>
                     <div class="nav-item dropdown ">
                         <a href="#"
                             class="nav-link dropdown-toggle {{ in_array(request()->segment(2), ['Health', 'Education', 'Science_&_Technology', 'Entertainment', 'Environment', 'Agriculture']) ? 'active' : '' }}"
-                            data-toggle="dropdown">Others</a>
+                            data-toggle="dropdown">অন্যান্য</a>
                         <div class="dropdown-menu">
                             <a href="{{ route('category.news', 'Health') }}"
-                                class="dropdown-item {{ Request::is('category/Health') ? 'active' : '' }}">Health</a>
+                                class="dropdown-item {{ Request::is('category/Health') ? 'active' : '' }}">স্বাস্থ্য</a>
                             <a href="{{ route('category.news', 'Education') }}"
-                                class="dropdown-item {{ Request::is('category/Education') ? 'active' : '' }}">Education</a>
+                                class="dropdown-item {{ Request::is('category/Education') ? 'active' : '' }}">শিক্ষা</a>
                             <a href="{{ route('category.news', 'Science_&_Technology') }}"
-                                class="dropdown-item {{ Request::is('category/Science_&_Techonology') ? 'active' : '' }}">Science
-                                & Technology</a>
+                                class="dropdown-item {{ Request::is('category/Science_&_Techonology') ? 'active' : '' }}">বিজ্ঞান ও প্রযুক্তি</a>
                             <a href="{{ route('category.news', 'Entertainment') }}"
-                                class="dropdown-item {{ Request::is('category/Entertainment') ? 'active' : '' }}">Entertainment</a>
+                                class="dropdown-item {{ Request::is('category/Entertainment') ? 'active' : '' }}">বিনোদন</a>
                             <a href="{{ route('category.news', 'Environment') }}"
-                                class="dropdown-item {{ Request::is('category/Environment') ? 'active' : '' }}">Environment</a>
+                                class="dropdown-item {{ Request::is('category/Environment') ? 'active' : '' }}">পরিবেশ</a>
                             <a href="{{ route('category.news', 'Agriculture') }}"
-                                class="dropdown-item {{ Request::is('category/Agriculture') ? 'active' : '' }}">Agriculture</a>
+                                class="dropdown-item {{ Request::is('category/Agriculture') ? 'active' : '' }}">কৃষি</a>
                         </div>
                     </div>
                 </div>
                 <div class="input-group ml-auto d-none d-lg-flex search" style="width: 100%; max-width: 300px;">
                     <form action="{{ route('news.search') }}" method="GET"
                         class="input-group ml-auto d-none d-lg-flex search" style="width: 100%; max-width: 300px;">
-                        <input type="text" name="query" class="form-control border-0" placeholder="Search here"
+                        <input type="text" name="query" class="form-control border-0" placeholder="এখানে অনুসন্ধান করুন"
                             required>
                         <div class="input-group-append">
                             <button type="submit" class="text-dark bg-deep-orange border-0 px-3"><i
@@ -144,265 +374,7 @@
                     </form>
 
                 </div>
-                <!-- Custom Dropdown with Search (using Select2) -->
-                <div class="language-dropdown notranslate">
-                    <select id="customLangSelector" onchange="setLanguageFromDropdown()">
-                        <option value="bn">Bengali</option>
-                        <option value="en">English</option>
-                        <option value="fr">French</option>
-                        <option value="hi">Hindi</option>
-                        <option value="oc">অকসিটান</option>
-                        <option value="as">অসমিয়া</option>
-                        <option value="ay">আইমারা</option>
-                        <option value="ga">আইরিশ</option>
-                        <option value="is">আইসল্যান্ডীয়</option>
-                        <option value="awa">আওয়াধি</option>
-                        <option value="ach">আচোলি</option>
-                        <option value="az">আজের বাইজানীয়</option>
-                        <option value="aa">আফার</option>
-                        <option value="af">আফ্রিকান</option>
-                        <option value="ab">আবখাজ</option>
-                        <option value="av">আভর</option>
-                        <option value="am">আমহারিয়</option>
-                        <option value="ar">আরবী</option>
-                        <option value="hy">আর্মেনিয়ান</option>
-                        <option value="sq">আলবেনীয়</option>
-                        <option value="alz">আলুর</option>
-                        <option value="ace">আসেনিজ</option>
-                        <option value="yua">ইউকাটেক মায়া</option>
-                        <option value="uk">ইউক্রেনীয়</option>
-                        <option value="ug">ইউঘুর</option>
-                        <option value="yo">ইউরোবা</option>
-                        <option value="en">ইংরেজী</option>
-                        <option value="ig">ইগবো</option>
-                        <option value="it">ইতালীয়</option>
-                        <option value="yi">ইদ্দিশ</option>
-                        <option value="iu-Latn">ইনুকটুট (ল্যাটিন)</option>
-                        <option value="iu">ইনুকটুট (সিলেবিকস)</option>
-                        <option value="id">ইন্দোনেশিয়</option>
-                        <option value="iba">ইবান</option>
-                        <option value="sah">ইয়াকুত</option>
-                        <option value="ilo">ইলোকানো</option>
-                        <option value="uz">উজবেক</option>
-                        <option value="udm">উদমুর্ট</option>
-                        <option value="ur">উর্দু</option>
-                        <option value="ee">এওয়ে</option>
-                        <option value="et">এস্তনীয়</option>
-                        <option value="or">ওডিয়া (ওড়িয়া)</option>
-                        <option value="war">ওয়ারায়</option>
-                        <option value="cy">ওয়েল্চ</option>
-                        <option value="om">ওরোমো</option>
-                        <option value="wo">ওলুফ</option>
-                        <option value="os">ওসেটিয়ান</option>
-                        <option value="trp">ককবরক</option>
-                        <option value="kk">কজাখ</option>
-                        <option value="co">করসিকেন</option>
-                        <option value="ca">কাতালান</option>
-                        <option value="kr">কানুরি</option>
-                        <option value="kn">কান্নাড়া</option>
-                        <option value="pam">কাপামপাঙ্গান</option>
-                        <option value="kl">কালালিসুট</option>
-                        <option value="kg">কিকঙ্গো</option>
-                        <option value="cgg">কিগা</option>
-                        <option value="ktu">কিতুবা</option>
-                        <option value="rw">কিনয়ারওয়ান্ডা</option>
-                        <option value="ky">কির্গিজ</option>
-                        <option value="ku">কুর্দিশ (কুর্মানজি)</option>
-                        <option value="ckb">কুর্দিশ (সোরানি)</option>
-                        <option value="kek">কেকচি</option>
-                        <option value="qu">কেচুয়া</option>
-                        <option value="gom">কোঙ্কণী</option>
-                        <option value="kv">কোমি</option>
-                        <option value="ko">কোরিয়ান</option>
-                        <option value="yue">ক্যান্টনীজ</option>
-                        <option value="kri">ক্রিও</option>
-                        <option value="crh-Latn">ক্রিমিয়ান তাতার (ল্যাটিন)</option>
-                        <option value="crh">ক্রিমিয়ান তাতার (সিরিলিক)</option>
-                        <option value="hr">ক্রোয়েশা</option>
-                        <option value="kha">খাসি</option>
-                        <option value="km">খেমের</option>
-                        <option value="gaa">গা</option>
-                        <option value="gu">গুজরাটি</option>
-                        <option value="gn">গুয়ারানি</option>
-                        <option value="gl">গ্যালিশিয়</option>
-                        <option value="el">গ্রীক্‌</option>
-                        <option value="ch">চামোরো</option>
-                        <option value="ny">চিচেওয়া</option>
-                        <option value="zh-TW">চিনা (ঐতিহ্যবাহী)</option>
-                        <option value="zh-CN">চীনা (সরলীকৃত)</option>
-                        <option value="chk">চুকিস</option>
-                        <option value="cv">চুভাশ</option>
-                        <option value="cs">চেক্‌</option>
-                        <option value="ce">চেচেন</option>
-                        <option value="ceb">চেবুয়ানো</option>
-                        <option value="dz">জংখা</option>
-                        <option value="ka">জর্জিয়ান</option>
-                        <option value="ja">জাপানি</option>
-                        <option value="zap">জাপোটেক</option>
-                        <option value="jw">জাভানি</option>
-                        <option value="jam">জামাইকান পাটওয়া</option>
-                        <option value="de">জার্মান</option>
-                        <option value="kac">জিংপো</option>
-                        <option value="dyu">জুলা</option>
-                        <option value="zu">জুলু</option>
-                        <option value="xh">জোসা</option>
-                        <option value="ak">টুই</option>
-                        <option value="tyv">টুভান</option>
-                        <option value="tpi">টোক পিসিন</option>
-                        <option value="to">টোঙ্গান</option>
-                        <option value="ber-Latn">ট্যামাজিট</option>
-                        <option value="ber">ট্যামাজিট (টিফিন্যাঘ)</option>
-                        <option value="ndc-ZW">ডাউ</option>
-                        <option value="nl">ডাচ</option>
-                        <option value="din">ডিংকা</option>
-                        <option value="doi">ডোগরি</option>
-                        <option value="dov">ডোম্বি</option>
-                        <option value="da">ড্যানিশ</option>
-                        <option value="tg">তাজিক</option>
-                        <option value="tt">তাতার</option>
-                        <option value="ta">তামিল</option>
-                        <option value="ty">তাহিতিয়ান</option>
-                        <option value="ti">তিগরিনিয়া</option>
-                        <option value="bo">তিব্বতী</option>
-                        <option value="tiv">তিভ</option>
-                        <option value="tum">তুমবুকা</option>
-                        <option value="tk">তুর্কমেন</option>
-                        <option value="tr">তুর্কী</option>
-                        <option value="tcy">তুলু</option>
-                        <option value="tet">তেতুম</option>
-                        <option value="te">তেলুগু</option>
-                        <option value="th">থাই</option>
-                        <option value="fa-AF">দারি</option>
-                        <option value="dv">দিবেহী</option>
-                        <option value="bm-Nkoo">নকো</option>
-                        <option value="no">নরওয়েজীয়</option>
-                        <option value="nhe">নাউয়াটল্ (পূর্ব হুয়াস্টেকা)</option>
-                        <option value="nus">নুয়ের</option>
-                        <option value="new">নেপালভাষা (নেওয়ারি)</option>
-                        <option value="ne">নেপালী</option>
-                        <option value="nr">নেবেলে (দক্ষিণ)</option>
-                        <option value="pt-PT">পর্তুগীজ (পর্তুগাল)</option>
-                        <option value="pt">পর্তুগীজ (ব্রাজিল)</option>
-                        <option value="ps">পশতু</option>
-                        <option value="pag">পাঙ্গাসিনান</option>
-                        <option value="pa">পাঞ্জাবি (গুরুমুখী)</option>
-                        <option value="pa-Arab">পাঞ্জাবি (শাহমুখী)</option>
-                        <option value="pap">পাপিয়ামেন্টো</option>
-                        <option value="pl">পোলীশ</option>
-                        <option value="fon">ফন</option>
-                        <option value="fr">ফরাসি</option>
-                        <option value="fr-CA">ফরাসি (কানাডা)</option>
-                        <option value="fa">ফার্সি</option>
-                        <option value="fj">ফিজিয়ান</option>
-                        <option value="fi">ফিনিশ</option>
-                        <option value="tl">ফিলিপিনো</option>
-                        <option value="ff">ফুলানি</option>
-                        <option value="fo">ফেরোইজ</option>
-                        <option value="fur">ফ্রিউলিয়ান</option>
-                        <option value="fy">ফ্রিজিয়ান</option>
-                        <option value="bs">বসনীয়</option>
-                        <option value="bci">বাউলে</option>
-                        <option value="bts">বাটাক সিমালুনগুন</option>
-                        <option value="btx">বাতাক কারো</option>
-                        <option value="bbc">বাতাক তোবা</option>
-                        <option value="bm">বাম্বারা</option>
-                        <option value="my">বার্মিজ</option>
-                        <option value="ban">বালিনিজ</option>
-                        <option value="bal">বালুচি</option>
-                        <option value="ba">বাশকির</option>
-                        <option value="eu">বাস্ক</option>
-                        <option value="bik">বিকোল</option>
-                        <option value="bua">বুরাত</option>
-                        <option value="bg">বুলগেরীয়</option>
-                        <option value="bew">বেতাউয়ি</option>
-                        <option value="bem">বেম্বা</option>
-                        <option value="be">বেলারুশীয়</option>
-                        <option value="br">ব্রিটন</option>
-                        <option value="vi">ভিয়েতনামিয়</option>
-                        <option value="vec">ভেনিশিয়ান</option>
-                        <option value="ve">ভেন্ডা</option>
-                        <option value="bho">ভোজপুরি</option>
-                        <option value="hmn">মংগ</option>
-                        <option value="mn">মঙ্গোলিয়</option>
-                        <option value="mfe">মরিশীয়ান ক্রেয়ল</option>
-                        <option value="mak">মাকাসসার</option>
-                        <option value="mad">মাদুরিস</option>
-                        <option value="mam">মাম</option>
-                        <option value="mi">মায়োরি</option>
-                        <option value="mwr">মারওয়াড়ি</option>
-                        <option value="mr">মারাঠি</option>
-                        <option value="mh">মার্শালিজ</option>
-                        <option value="ms-Arab">মালয়(জাউই)</option>
-                        <option value="mg">মালাগাসি</option>
-                        <option value="ms">মালে</option>
-                        <option value="ml">মালেয়ালাম</option>
-                        <option value="mt">মাল্টিজ</option>
-                        <option value="lus">মিজো</option>
-                        <option value="chm">মিডো মারি</option>
-                        <option value="min">মিনাঙ্গ</option>
-                        <option value="mni-Mtei">মৈতৈলোন (মণিপুরী)</option>
-                        <option value="mai">মৈথিলি</option>
-                        <option value="gv">ম্যাক্স</option>
-                        <option value="mk">ম্যাসিডোনিয়ান</option>
-                        <option value="rn">রুন্দি</option>
-                        <option value="ru">রুশ</option>
-                        <option value="rom">রোমানিয়া</option>
-                        <option value="ro">রোমানীয়</option>
-                        <option value="lo">লাও</option>
-                        <option value="ltg">লাতগালিয়ান</option>
-                        <option value="lv">লাতভিয়ান</option>
-                        <option value="la">লাতিন</option>
-                        <option value="lij">লিগুরিয়ান</option>
-                        <option value="ln">লিঙ্গালা</option>
-                        <option value="lt">লিথুয়ানীয়</option>
-                        <option value="li">লিমবুর্জিশ</option>
-                        <option value="luo">লুও</option>
-                        <option value="lb">লুক্সেমবার্গীয়</option>
-                        <option value="lg">লুগান্ডা</option>
-                        <option value="lmo">লোম্বার্ড</option>
-                        <option value="shn">শান</option>
-                        <option value="lua">শিলুবা</option>
-                        <option value="sw">শোয়াইলি</option>
-                        <option value="sa">সংস্কৃত</option>
-                        <option value="szl">সাইলেশিয়ান</option>
-                        <option value="sat">সাঁওতালি (অল চিকি)</option>
-                        <option value="sat-Latn">সাঁওতালি (ল্যাটিন)</option>
-                        <option value="sg">সাঙ্গো</option>
-                        <option value="se">সামি (উত্তর)</option>
-                        <option value="sm">সামোয়া</option>
-                        <option value="sr">সার্বিয়ান</option>
-                        <option value="si">সিংহলি</option>
-                        <option value="sd">সিন্ধি</option>
-                        <option value="scn">সিসিলিয়ান</option>
-                        <option value="sv">সুইডিশ</option>
-                        <option value="su">সুদানীজ</option>
-                        <option value="sus">সুসু</option>
-                        <option value="nso">সেপেডি</option>
-                        <option value="crs">সেশেলয়েস ক্রয়েল</option>
-                        <option value="st">সেসোথো</option>
-                        <option value="ts">সোঙ্গা</option>
-                        <option value="sn">সোনা</option>
-                        <option value="so">সোমালি</option>
-                        <option value="ss">সোয়াতি</option>
-                        <option value="tn">সোয়ানা</option>
-                        <option value="gd">স্কচ্ গাইলি</option>
-                        <option value="es">স্পেনীয়</option>
-                        <option value="eo">স্পেরান্তো</option>
-                        <option value="sk">স্লোভাক</option>
-                        <option value="sl">স্লোভেনিয়</option>
-                        <option value="ht">হাইতিয়ান ক্রেওল</option>
-                        <option value="ha">হাউসা</option>
-                        <option value="haw">হাওয়াইয়ান</option>
-                        <option value="cnh">হাকা চিন</option>
-                        <option value="hu">হাঙ্গেরীয়</option>
-                        <option value="hrx">হানস্রিক</option>
-                        <option value="hi">হিন্দি</option>
-                        <option value="iw">হিব্রু</option>
-                        <option value="hil">হিলিগ্যায়নোন</option>
-                    </select>
-                </div>
-                <!-- Google Translate Widget (hidden) -->
-                <div id="google_element"></div>
+                
 
             </div>
         </nav>
@@ -504,33 +476,51 @@
 
     <!-- Google Translate Script -->
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-
     <script>
         // Function to load Google Translate element
         function loadGoogleTranslate() {
             new google.translate.TranslateElement({
-                    pageLanguage: 'bn'
-                },
-                'google_element'
-            );
+                pageLanguage: 'bn'
+            }, 'google_element');
         }
-
+    
         // Function to change the language based on custom dropdown selection
         function setLanguageFromDropdown() {
             let selectedLang = document.getElementById('customLangSelector').value;
+            setLanguage(selectedLang);
+        }
+    
+        // Function to set language and save it to localStorage
+        function setLanguage(selectedLang) {
             let googleTranslateFrame = document.querySelector('.goog-te-combo');
             if (googleTranslateFrame) {
                 googleTranslateFrame.value = selectedLang;
                 googleTranslateFrame.dispatchEvent(new Event('change')); // Trigger language change
+                localStorage.setItem('selectedLanguage', selectedLang); // Save selected language to localStorage
             }
         }
-
+    
         // Initialize Google Translate on page load
         window.onload = function() {
             loadGoogleTranslate();
+    
+            // Check if there's a language saved in localStorage
+            let savedLang = localStorage.getItem('selectedLanguage');
+            if (savedLang) {
+                setTimeout(() => {
+                    setLanguage(savedLang); // Apply the saved language
+    
+                    // Update the select dropdown value
+                    let customLangSelector = document.getElementById('customLangSelector');
+                    if (customLangSelector) {
+                        customLangSelector.value = savedLang;
+                    }
+                }, 1000); // Delay to ensure Google Translate loads first
+            }
         };
     </script>
-
+    
+    {{-- end gogle translate script --}}
 
     {{-- for live date --}}
     <script>
@@ -542,10 +532,11 @@
                 month: 'long',
                 day: 'numeric'
             };
-            document.getElementById('currentDate').innerText = date.toLocaleDateString('en-US', options);
+            document.getElementById('currentDate').innerText = date.toLocaleDateString('bn-BD', options);
         }
         updateDate();
     </script>
+    {{-- end lide date section --}}
 </body>
 
 </html>

@@ -105,23 +105,17 @@
 
                                 @endforeach
                             @endif
+                            
+
                         </table>
-        
                       {{-- ! Table End  --}}
-        
-                    
+                        
+                      
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-  
 
 @endsection

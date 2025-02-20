@@ -7,6 +7,9 @@ body {
     /* font-family: 'Hind Siliguri', sans-serif; */
     font-weight: 400;
     background: #ffffff;
+    position: relative !important; 
+    min-height: 100% !important; 
+    top: 0px !important;
 }
 
 a {
@@ -65,6 +68,26 @@ h6 {
 }
 
 /* ************************************** */
+/* *********** topbar section ********** */
+/* ************************************** */
+@media(max-width: 991px) {
+    .topbar .topbar-logo{
+        display: none;
+    }   
+}
+.skiptranslate, .skiptranslate iframe {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+
+
+
+/* ************************************** */
 /* ******* language change section ****** */
 /* ************************************** */
 .language-dropdown {
@@ -73,9 +96,8 @@ h6 {
     width: 200px;
 }
 
-.dropdown select {
-    width: 100%;
-    padding: 10px;
+.language-dropdown select {
+    width:75%;
     font-size: 16px;
 }
 

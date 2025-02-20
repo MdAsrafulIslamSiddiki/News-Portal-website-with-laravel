@@ -71,12 +71,12 @@ class NewsController extends Controller
         $new_image = $request->hasFile('image') ? $this->uploadSingleMedia($request->image,$slug , 'news_images', $news->image) : null;
 
         // dd($new_image);
-        $news->news_title = $request->news_title;
-        $news->slug = $slug;
+        $news->news_title = $request->news_title ?? $news->news_title;
+        $news->slug = $slug ?? $news->slug;
         $news->image = $new_image ?? $news->image;
-        $news->short_details = $request->short_details;
-        $news->long_details = $request->long_details;
-        $news->category = $request->category;
+        $news->short_details = $request->short_details ?? $news->short_details;
+        $news->long_details = $request->long_details ?? $news->long_details;
+        $news->category = $request->category ?? $news->category;
         $news->save();
         notify()->success('News updated successfully!', 'Success');
         return back();
