@@ -101,6 +101,7 @@
                                         </div>
                                         </div>
                                     </div>
+                                    {{-- end modal --}}
 
 
                                 @endforeach
