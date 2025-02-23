@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\FrontendNewsController;
 
 Auth::routes();
@@ -16,6 +18,11 @@ Route::get('/news/{title}', [FrontendNewsController::class, 'show'])->name('news
 Route::get('/search', [FrontendNewsController::class, 'search'])->name('news.search');
 
 
+// forget password routes
+Route::get('admin/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
+Route::post('admin/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('admin.password.email');
+Route::get('admin/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('admin.password.reset');
+Route::post('admin/reset-password', [ResetPasswordController::class, 'reset'])->name('admin.password.update');
 
 Route::middleware('auth')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'] )->name('dashboard');

@@ -13,6 +13,7 @@
     <link href="{{ asset('frontend/assets/img/favicon.ico') }}" rel="icon">
 
     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalpurush&display=swap" rel="stylesheet">
 
     {{-- <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet"> --}}

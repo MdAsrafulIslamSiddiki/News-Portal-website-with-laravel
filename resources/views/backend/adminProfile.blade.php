@@ -40,7 +40,7 @@
             </div>
             <div class="modal-body">
                 <!-- Profile Update Form -->
-                <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
+                <form id="updateProfileForm" action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -108,7 +108,7 @@
     {{-- update profile script --}}
     <script>
         $(document).ready(function() {
-            $('form').submit(function(e) {
+            $('#updateProfileForm').submit(function(e) {
                 e.preventDefault(); 
 
                 var formData = new FormData(this); 
@@ -146,25 +146,24 @@
     {{-- change password script --}}
     <script>
         $(document).ready(function() {
-            // Submit the Change Password Form
             $('#changePasswordForm').submit(function(e) {
-                e.preventDefault(); // Prevent normal form submission
+                e.preventDefault(); // Prevent default form submission
     
-                var formData = $(this).serialize(); // Serialize form data
+                var formData = new FormData(this); // FormData object create
     
                 $.ajax({
-                    url: '{{ route('admin.profile.changePassword') }}', // Your password change route
+                    url: '{{ route('admin.profile.changePassword') }}', // Route to change password
                     method: 'POST',
                     data: formData,
+                    processData: false,
+                    contentType: false,
                     success: function(response) {
-                        // Show success notification
-                        // toastr.success(response.success);
                         $('#changePasswordModal').modal('hide'); 
-                        window.location.reload(); // Reload the page to reflect the changes
+                        window.location.reload(); // Reload page to reflect changes
                     },
                     error: function(xhr) {
                         var errors = xhr.responseJSON.errors;
-                        
+    
                         // Handle validation errors for current password
                         if (errors.current_password) {
                             $('#current_password').addClass('is-invalid');
@@ -196,6 +195,7 @@
             });
         });
     </script>
+    
     
     
     

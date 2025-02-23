@@ -59,23 +59,23 @@ class DashboardController extends Controller
     function change_password(Request $request) {
         $request->validate([
             'current_password' => 'required|string',
-            'new_password' => 'required|string|min:8|confirmed',
-            'password_confirmation' => 'required|string|min:8',
+            'new_password' => 'required|string|min:8',
+            'password_confirmation' => 'required|string|min:8|same:new_password',
         ]);
-
+    
         $user = User::find(Auth::id());
-        
-        // Check if current password is correct
+    
         if (!Hash::check($request->current_password, $user->password)) {
             return response()->json(['errors' => ['current_password' => ['Current password is incorrect.']]], 422);
         }
-
-        // Update password
+    
         $user->password = Hash::make($request->new_password);
         $user->save();
-
         
         notify()->success('Profile updated successfully!', 'Success');
         return response()->json(['success' => 'Password changed successfully']);
+        
+
+        
     }
 }

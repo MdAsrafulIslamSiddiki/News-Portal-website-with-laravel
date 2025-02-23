@@ -1,80 +1,98 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>news 24 - admin login</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend/assets/images/favicon.png') }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSS
+    ============================================ -->
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/flaticon/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/sal.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/vendor/base.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.min.css') }}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="axil-signin-area">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+        <!-- Start Header -->
+        <div class="signin-header">
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <a href="{{ route('homepage') }}" target="__blank" class="site-logo"><img src="{{ asset('backend/assets/images/logo/logo.png') }}" alt="logo"></a>
+                </div>
+                {{-- <div class="col-sm-8">
+                    <div class="singin-header-btn">
+                        <p>Not a member?</p>
+                        <a href="sign-up.html" class="axil-btn btn-bg-secondary sign-up-btn">Sign Up Now</a>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+        <!-- End Header -->
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+        <div class="row">
+            <div class="col-xl-4 col-lg-6">
+                <div class="axil-signin-banner bg_image bg_image--9">
+                    <h3 class="title">We Offer the Best Products</h3>
                 </div>
             </div>
-        </nav>
+            <div class="col-lg-6 offset-xl-2">
+                <div class="axil-signin-form-wrap">
+                    <div class="axil-signin-form">
+                        
+                        @yield('content')
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- JS
+============================================ -->
+    <!-- Modernizer JS -->
+    <script src="{{ asset('backend/assets/js/vendor/modernizr.min.js') }}"></script>
+    <!-- jQuery JS -->
+    <script src="{{ asset('backend/assets/js/vendor/jquery.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('backend/assets/js/vendor/popper.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/slick.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/js.cookie.js') }}"></script>
+    <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="{{ asset('backend/assets/js/vendor/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/jquery.ui.touch-punch.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/sal.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/counterup.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/vendor/waypoints.min.js') }}"></script>
+
+    <!-- Main JS -->
+    <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+
 </body>
+
 </html>
+
+
