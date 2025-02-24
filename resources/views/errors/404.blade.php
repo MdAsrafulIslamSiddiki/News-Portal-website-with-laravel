@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found</title>
-    <link rel="stylesheet" href="{{ asset('backend/dashboard_assets/assets/vendor/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
 
 </head>
 <body>

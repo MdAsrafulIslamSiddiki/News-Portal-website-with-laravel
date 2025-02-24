@@ -17,7 +17,7 @@
         </div>
         <div class="form-group d-flex align-items-center justify-content-between">
             <button type="submit" class="axil-btn btn-bg-primary submit-btn">Login</button>
-            <a href="{{route('admin.password.request')}}" class="forgot-btn">Forget password?</a>
+            {{-- <a href="{{route('admin.password.request')}}" class="forgot-btn">Forget password?</a> --}}
         </div>
     </form>
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
     <h2>Reset Your Password</h2>
@@ -28,4 +28,4 @@
     @if ($errors->any())
         <p>{{ $errors->first() }}</p>
     @endif
-@endsection
+@endsection --}}

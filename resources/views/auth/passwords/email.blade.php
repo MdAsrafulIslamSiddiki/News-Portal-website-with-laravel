@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
     <h3 class="title">Admin Password Reset</h3>
@@ -14,4 +14,4 @@
         </div>
     </form>
 
-@endsection
+@endsection --}}

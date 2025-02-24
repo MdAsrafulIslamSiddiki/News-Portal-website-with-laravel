@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController;
@@ -19,10 +21,13 @@ Route::get('/search', [FrontendNewsController::class, 'search'])->name('news.sea
 
 
 // forget password routes
-Route::get('admin/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
-Route::post('admin/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('admin.password.email');
-Route::get('admin/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('admin.password.reset');
-Route::post('admin/reset-password', [ResetPasswordController::class, 'reset'])->name('admin.password.update');
+// Route::get('admin/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
+// Route::post('admin/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('admin.password.email');
+// Route::get('admin/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('admin.password.reset');
+// Route::post('admin/reset-password', [ResetPasswordController::class, 'reset'])->name('admin.password.update');
+
+
+
 
 Route::middleware('auth')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'] )->name('dashboard');
